@@ -1,0 +1,452 @@
+/* lato-300 - latin */
+@font-face {
+	font-family: 'Lato';
+	font-style: normal;
+	font-weight: 300;
+	src: url('./fonts/lato-v17-latin-300.eot');
+	/* IE9 Compat Modes */
+	src: local(''),
+		url('./fonts/lato-v17-latin-300.eot?#iefix') format('embedded-opentype'),
+		/* IE6-IE8 */
+		url('./fonts/lato-v17-latin-300.woff2') format('woff2'),
+		/* Super Modern Browsers */
+		url('./fonts/lato-v17-latin-300.woff') format('woff'),
+		/* Modern Browsers */
+		url('./fonts/lato-v17-latin-300.ttf') format('truetype'),
+		/* Safari, Android, iOS */
+		url('./fonts/lato-v17-latin-300.svg#Lato') format('svg');
+	/* Legacy iOS */
+}
+
+/* lato-regular - latin */
+@font-face {
+	font-family: 'Lato';
+	font-style: normal;
+	font-weight: 400;
+	src: url('./fonts/lato-v17-latin-regular.eot');
+	/* IE9 Compat Modes */
+	src: local(''),
+		url('./fonts/lato-v17-latin-regular.eot?#iefix') format('embedded-opentype'),
+		/* IE6-IE8 */
+		url('./fonts/lato-v17-latin-regular.woff2') format('woff2'),
+		/* Super Modern Browsers */
+		url('./fonts/lato-v17-latin-regular.woff') format('woff'),
+		/* Modern Browsers */
+		url('./fonts/lato-v17-latin-regular.ttf') format('truetype'),
+		/* Safari, Android, iOS */
+		url('./fonts/lato-v17-latin-regular.svg#Lato') format('svg');
+	/* Legacy iOS */
+}
+
+/* lato-italic - latin */
+@font-face {
+	font-family: 'Lato';
+	font-style: italic;
+	font-weight: 400;
+	src: url('./fonts/lato-v17-latin-italic.eot');
+	/* IE9 Compat Modes */
+	src: local(''),
+		url('./fonts/lato-v17-latin-italic.eot?#iefix') format('embedded-opentype'),
+		/* IE6-IE8 */
+		url('./fonts/lato-v17-latin-italic.woff2') format('woff2'),
+		/* Super Modern Browsers */
+		url('./fonts/lato-v17-latin-italic.woff') format('woff'),
+		/* Modern Browsers */
+		url('./fonts/lato-v17-latin-italic.ttf') format('truetype'),
+		/* Safari, Android, iOS */
+		url('./fonts/lato-v17-latin-italic.svg#Lato') format('svg');
+	/* Legacy iOS */
+}
+
+/* lato-700 - latin */
+@font-face {
+	font-family: 'Lato';
+	font-style: normal;
+	font-weight: 700;
+	src: url('./fonts/lato-v17-latin-700.eot');
+	/* IE9 Compat Modes */
+	src: local(''),
+		url('./fonts/lato-v17-latin-700.eot?#iefix') format('embedded-opentype'),
+		/* IE6-IE8 */
+		url('./fonts/lato-v17-latin-700.woff2') format('woff2'),
+		/* Super Modern Browsers */
+		url('./fonts/lato-v17-latin-700.woff') format('woff'),
+		/* Modern Browsers */
+		url('./fonts/lato-v17-latin-700.ttf') format('truetype'),
+		/* Safari, Android, iOS */
+		url('./fonts/lato-v17-latin-700.svg#Lato') format('svg');
+	/* Legacy iOS */
+}
+
+/* lato-900 - latin */
+@font-face {
+	font-family: 'Lato';
+	font-style: normal;
+	font-weight: 900;
+	src: url('./fonts/lato-v17-latin-900.eot');
+	/* IE9 Compat Modes */
+	src: local(''),
+		url('./fonts/lato-v17-latin-900.eot?#iefix') format('embedded-opentype'),
+		/* IE6-IE8 */
+		url('./fonts/lato-v17-latin-900.woff2') format('woff2'),
+		/* Super Modern Browsers */
+		url('./fonts/lato-v17-latin-900.woff') format('woff'),
+		/* Modern Browsers */
+		url('./fonts/lato-v17-latin-900.ttf') format('truetype'),
+		/* Safari, Android, iOS */
+		url('./fonts/lato-v17-latin-900.svg#Lato') format('svg');
+	/* Legacy iOS */
+}
+
+body {
+	margin: 0;
+	font-family: 'Lato';
+}
+
+.header {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	background-color: #222222;
+	height: 75px;
+}
+
+.left {
+	display: flex;
+	margin-left: 231px;
+
+	&__logo {
+		margin-right: 41px;
+	}
+
+	&__search {
+		margin-top: 10px;
+	}
+}
+
+.right {
+	display: flex;
+	align-items: center;
+	margin: 5px 231px 0 0;
+
+	&__burger,
+	&__person {
+		margin-right: 33px;
+	}
+}
+
+.main {
+	width: 100%;
+}
+
+.start {
+	display: flex;
+	align-items: center;
+	width: 100%;
+	height: 764px;
+	margin-right: 331px;
+	background: #f1e4e6;
+}
+
+.slogan {
+	display: flex;
+	flex-direction: column;
+	margin: 0 0 45px 63px;
+	padding: 0;
+	height: 92px;
+	border-left: 12px solid #F16D7F;
+	padding: 0 0 0 16px;
+
+	&__first {
+		margin: 0;
+		font-weight: 900;
+		font-size: 48px;
+		line-height: 58px;
+	}
+
+	&__second {
+		margin: 0;
+		font-weight: 700;
+		font-size: 32px;
+		line-height: 38px;
+	}
+
+	&__second-pink {
+		color: #F16D7F;
+	}
+}
+
+.container {
+	max-width: 1140px;
+	margin: 0 auto;
+}
+
+.offers {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	margin-top: 65px;
+
+	&__item {
+		width: 360px;
+		height: 260px;
+		background-color: rgba(33, 22, 22, 0.7);
+		background-blend-mode: multiply;
+		background-repeat: no-repeat;
+		text-align: center;
+		padding-top: 105px;
+		box-sizing: border-box;
+
+		&-text-first {
+			font-weight: 400;
+			font-size: 16px;
+			line-height: 19px;
+			color: #FFFFFF;
+		}
+
+		&-text-second {
+			font-weight: 700;
+			font-size: 24px;
+			line-height: 29px;
+			color: #F16D7F;
+		}
+	}
+
+	&__item:nth-child(1) {
+		background-image: url("img/for-women.png");
+	}
+
+	&__item:nth-child(2) {
+		background-image: url("img/for-men.png");
+	}
+
+	&__item:nth-child(3) {
+		background-image: url("img/for-kids.png");
+	}
+	
+	&__item:last-child {
+		height: 180px;
+		background-image: url("img/accesories.png");
+		flex-grow: 1;
+		margin-top: 30px;
+		padding-top: 65px;
+	}
+}
+
+.items {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	margin: 96px 0;
+
+	&__header {
+		width: 100%;
+		margin-bottom: 48px;
+		text-align: center;
+
+		&-first {
+			font-size: 30px;
+			line-height: 36px;
+			color: #222222;
+		}
+
+		&-second {
+			font-size: 14px;
+			line-height: 17px;
+			color: #9F9F9F;
+		}
+	}
+
+	&__item {
+		width: 360px;
+		background-color: #F8F8F8;
+		margin-bottom: 30px;
+
+		&-header {
+			margin-left: 18px;
+			font-size: 13px;
+			line-height: 16px;
+			color: #000000;
+		}
+
+		&-text {
+			margin: 0 28px 18px 16px;
+			font-weight: 300;
+			font-size: 14px;
+			line-height: 17px;
+			color: #5D5D5D;
+		}
+
+		&-cost {
+			margin-left: 18px;
+			font-size: 16px;
+			line-height: 19px;
+			color: #F16D7F;
+			margin-bottom: 18px;
+		}
+	}
+
+	&__all-product {
+		width: 100%;
+		text-align: center;
+		margin-top: 18px;
+
+		&_button {
+			border: 1px solid #FF6A6A;
+			font-size: 16px;
+			line-height: 19px;
+			color: #F26376;
+			padding: 14px 38px;
+			background-color: #fff;
+		}
+	}
+}
+
+.end {
+	width: 100%;
+	height: 341px;
+	background: #222224;
+	padding: 103px 0;
+	box-sizing: border-box;
+}
+
+.feature {
+	display: flex;
+	justify-content: space-between;
+
+	&__item {
+		text-align: center;
+		width: 300px;
+		color: #FBFBFB;
+
+		&-icon {
+			height: 40px;
+		}
+
+		&-header {
+			margin: 20px 0 16px 0;
+			font-size: 20px;
+			line-height: 24px;
+		}
+
+		&-text {
+			font-weight: 300;
+			font-size: 14px;
+			line-height: 17px;
+		}
+	}
+}
+
+.subscribe {
+	width: 100%;
+	height: 448px;
+	padding: 86px 0;
+	box-sizing: border-box;
+	background-color: rgba(244, 244, 244, 0.7);
+	background-blend-mode: overlay;
+	background-image: url(img/footer-background.jpg);
+	background-repeat: no-repeat;
+	background-position: center;
+}
+
+.sub {
+	display: flex;
+	justify-content: space-between;
+
+	&__info {
+		width: 360px;
+		font-size: 20px;
+		line-height: 24px;
+		text-align: center;
+
+		&-text {
+			margin-top: 30px;
+		}
+	}
+
+	&__subscribe {
+		text-align: center;
+		color: #222224;
+		margin-top: 64px;
+
+		&-header {
+			font-weight: bold;
+			font-size: 24px;
+			line-height: 40px;
+		}
+
+		&-title {
+			font-weight: 400;
+			font-size: 18px;
+			line-height: 30px;
+		}
+
+		&-group {
+			display: flex;
+			flex-wrap: wrap;
+			width: 100%;
+			margin-top: 30px;
+
+			&-email {
+				background: #E1E1E1;
+				padding: 16px 64px 16px 22px;
+				border: none;
+				border-radius: 18px 0px 0px 18px;
+			}
+
+			&-email::placeholder {
+				font-size: 14px;
+				line-height: 17px;
+				color: #222224;
+				opacity: 0.67;
+			}
+
+			&-but {
+				background: #F16D7F;
+				padding: 16px 22px;
+				border: none;
+				border-radius: 0px 18px 18px 0px;
+
+				font-size: 14px;
+				line-height: 17px;
+				color: #FFFFFF;
+			}
+		}
+	}
+}
+
+.copyright {
+	width: 100%;
+	height: 79px;
+	background: #222224;
+}
+
+.copyr {
+	display: flex;
+	justify-content: space-between;
+
+	&__left {
+		padding-top: 30px;
+		font-size: 16px;
+		line-height: 19px;
+		color: #FBFBFB;
+	}
+
+	&__social {
+		padding-top: 24px;
+		display: flex;
+		justify-content: space-between;
+
+		&-item {
+			height: 32px;
+			width: 32px;
+			background-color: #fff;
+			margin-right: 7px;
+			display: flex;
+
+			&-image {
+				margin: auto;
+			}
+		}
+	}
+}
