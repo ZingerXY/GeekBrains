@@ -171,6 +171,7 @@ body {
 }
 
 .offers__item {
+  text-decoration: none;
   margin: 0;
   width: 360px;
   height: 260px;
@@ -350,19 +351,74 @@ body {
   margin-bottom: 18px;
 }
 
-.items__all-product {
+.items__item-image {
+  display: block;
+  position: relative;
+}
+
+.items__item-image-AddToCart {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(58, 56, 56, 0.86);
+  visibility: hidden;
+}
+
+.items__item-image-AddToCart-but {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  cursor: pointer;
+  background-color: #0000;
+  border: 1px solid #fff;
+  font-size: 14px;
+  line-height: 17px;
+  color: #fff;
+  padding: 10px 15px 8px 13px;
+}
+
+.items__item-image-AddToCart-but img {
+  margin-right: 11px;
+}
+
+.items__item-image:hover .items__item-image-AddToCart {
+  visibility: visible;
+}
+
+.items__allProduct {
   width: 100%;
   text-align: center;
   margin-top: 18px;
 }
 
-.items__all-product_button {
+.items__allProduct-button {
   border: 1px solid #FF6A6A;
   font-size: 16px;
   line-height: 19px;
   color: #F26376;
   padding: 14px 38px;
   background-color: #fff;
+}
+
+.items__allProduct-button:hover {
+  background-color: #F16D7F;
+  color: #fff;
+  cursor: pointer;
 }
 
 .end {
@@ -507,6 +563,7 @@ body {
   padding: 16px 22px;
   border: none;
   border-radius: 0px 18px 18px 0px;
+  cursor: pointer;
   font-size: 14px;
   line-height: 17px;
   color: #FFFFFF;
@@ -556,6 +613,15 @@ body {
 
 .copyr__social-item-image {
   margin: auto;
+}
+
+.copyr__social-item:hover {
+  background-color: #F16D7F;
+}
+
+.copyr__social-item:hover img {
+  -webkit-filter: invert(1);
+          filter: invert(1);
 }
 
 /* Catalog */
