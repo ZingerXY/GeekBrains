@@ -103,17 +103,19 @@ body {
 	font-family: 'Lato';
 }
 
+.head {
+	background-color: #222222;
+}
+
 .header {
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
-	background-color: #222222;
 	height: 75px;
 }
 
 .left {
 	display: flex;
-	margin-left: 231px;
 
 	&__logo {
 		margin-right: 41px;
@@ -127,7 +129,7 @@ body {
 .right {
 	display: flex;
 	align-items: center;
-	margin: 5px 231px 0 0;
+	margin: 5px 0px 0 0;
 
 	&__burger,
 	&__person {
@@ -188,6 +190,7 @@ body {
 	margin-top: 65px;
 
 	&__item {
+		margin: 0;
 		width: 360px;
 		height: 260px;
 		background-color: rgba(33, 22, 22, 0.7);
@@ -245,6 +248,7 @@ body {
 		text-align: center;
 
 		&-first {
+			margin: 0;
 			font-size: 30px;
 			line-height: 36px;
 			color: #222222;
@@ -256,6 +260,70 @@ body {
 			color: #9F9F9F;
 		}
 	}
+
+	/** Catalog */
+	&__filter {
+		width: 100%;
+		margin: -45px 16px 64px 16px;
+		display: flex;
+
+		&-sort {
+			font-weight: 600;
+			font-size: 14px;
+			line-height: 17px;
+			width: 34%;
+
+			&-img {
+				margin-left: 11px;
+			}
+		}
+
+		&-filters {
+			display: flex;
+
+			&-select {
+
+				&-img {
+					margin-left: 10px;
+				}
+			}
+
+			&-select:not(:first-child) {
+				margin-left: 28px;
+			}
+		}
+	}
+
+	&__pagination {
+		width: 100%;
+		display: flex;
+		justify-content: center;
+
+		&-element {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			padding: 15px 16px;
+			box-sizing: border-box;
+			height: 43px;
+			width: 283px;
+			border: 1px solid #EBEBEB;
+			font-weight: 300;
+			font-size: 16px;
+			line-height: 19px;
+			color: #c4c4c4;
+
+			&-num.current {
+				color: #EF5B70;
+			}
+
+			&-img {
+
+			}
+		}
+	}
+
+	/* Catalog **/
 
 	&__item {
 		width: 360px;
@@ -346,6 +414,7 @@ body {
 	background-blend-mode: overlay;
 	background-image: url(img/footer-background.jpg);
 	background-repeat: no-repeat;
+	background-size: cover;
 	background-position: center;
 }
 
@@ -381,7 +450,7 @@ body {
 			line-height: 30px;
 		}
 
-		&-group {
+		&-form {
 			display: flex;
 			flex-wrap: wrap;
 			width: 100%;
@@ -446,6 +515,44 @@ body {
 
 			&-image {
 				margin: auto;
+			}
+		}
+	}
+}
+
+/* Catalog */
+
+.catalogHeader {
+	width: 100%;
+	background: #F8F3F4;
+}
+
+.cathead {
+	height: 148px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+
+	&__left {
+
+		&-text {
+			font-size: 24px;
+			line-height: 29px;
+			color: #F16D7F;
+		}
+	}
+
+
+	&__right {
+		&-breadcrumbs {
+			font-weight: 300;
+			font-size: 14px;
+			line-height: 17px;
+			color: #636363;
+
+			&-last {
+				color: #F16D7F;
+				font-weight: 700;
 			}
 		}
 	}
