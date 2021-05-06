@@ -272,10 +272,10 @@ body {
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: space-between;
-	margin: 96px 0;
 
 	&__header {
 		width: 100%;
+		margin-top: 96px;
 		margin-bottom: 48px;
 		text-align: center;
 
@@ -296,7 +296,7 @@ body {
 	/** Catalog */
 	&__filter {
 		width: 100%;
-		margin: -45px 16px 64px 16px;
+		margin: 51px 16px 64px 16px;
 		display: flex;
 
 		&-sort {
@@ -364,7 +364,7 @@ body {
 		display: flex;
 		justify-content: center;
 		flex-grow: 1;
-		margin-top: -165px;
+		margin-top: -70px;
 		margin-bottom: 130px;
 		background-color: #fff;
 		border: 1px solid #EAEAEA;
@@ -757,7 +757,12 @@ body {
 			line-height: 17px;
 			color: #636363;
 
+			&-link {
+				text-decoration: none;
+			}
+
 			&-last {
+				text-decoration: none;
 				color: #F16D7F;
 				font-weight: 700;
 			}
