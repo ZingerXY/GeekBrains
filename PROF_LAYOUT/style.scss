@@ -144,37 +144,42 @@ body {
 .start {
 	display: flex;
 	align-items: center;
+	justify-content: center;
 	width: 100%;
 	height: 764px;
 	margin-right: 331px;
 	background: #f1e4e6;
-}
 
-.slogan {
-	display: flex;
-	flex-direction: column;
-	margin: 0 0 45px 63px;
-	padding: 0;
-	height: 92px;
-	border-left: 12px solid #F16D7F;
-	padding: 0 0 0 16px;
-
-	&__first {
-		margin: 0;
-		font-weight: 900;
-		font-size: 48px;
-		line-height: 58px;
+	&__photo {
+		margin-left: -100px;
 	}
 
-	&__second {
-		margin: 0;
-		font-weight: 700;
-		font-size: 32px;
-		line-height: 38px;
-	}
+	&__slogan {
+		display: flex;
+		flex-direction: column;
+		margin: 0 0 45px 63px;
+		padding: 0;
+		height: 92px;
+		border-left: 12px solid #F16D7F;
+		padding: 0 0 0 16px;
 
-	&__second-pink {
-		color: #F16D7F;
+		&-first {
+			margin: 0;
+			font-weight: 900;
+			font-size: 48px;
+			line-height: 58px;
+		}
+
+		&-second {
+			margin: 0;
+			font-weight: 700;
+			font-size: 32px;
+			line-height: 38px;
+
+			&-ping {
+				color: #F16D7F;
+			}
+		}
 	}
 }
 
@@ -406,6 +411,8 @@ body {
 			color: #F26376;
 			padding: 14px 38px;
 			background-color: #fff;
+			display: inline-block;
+			text-decoration: none;
 		}
 
 		&-button:hover {
@@ -507,6 +514,15 @@ body {
 				padding: 16px 64px 16px 22px;
 				border: none;
 				border-radius: 18px 0px 0px 18px;
+				outline: none;
+			}
+
+			&-email:focus {
+				box-shadow: 0 0 3px black;
+			}
+
+			&-email:hover {
+				box-shadow: 0 0 3px black;
 			}
 
 			&-email::placeholder {
