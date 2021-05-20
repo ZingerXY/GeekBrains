@@ -284,6 +284,7 @@ label.radio {
 		padding: 0 0 0 16px;
 
 		&-first {
+			display: block;
 			margin: 0;
 			font-weight: 900;
 			font-size: 48px;
@@ -291,6 +292,7 @@ label.radio {
 		}
 
 		&-second {
+			display: block;
 			margin: 0;
 			font-weight: 700;
 			font-size: 32px;
