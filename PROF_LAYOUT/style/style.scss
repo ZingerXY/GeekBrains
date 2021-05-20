@@ -103,6 +103,118 @@ body {
 	font-family: 'Lato';
 }
 
+/* checkbox */
+
+label.checkbox {
+	display: inline-flex;
+	align-items: center;
+	user-select: none;
+
+	input {
+		position: absolute;
+		z-index: -1;
+		opacity: 0;
+
+		&:checked+.checkbox__text:before {
+			border-color: #F16D7F;
+			background-color: #F16D7F;
+			background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3e%3cpath fill='%23fff' d='M6.564.75l-3.59 3.612-1.538-1.55L0 4.26 2.974 7.25 8 2.193z'/%3e%3c/svg%3e");
+		}
+
+		&:focus+.checkbox__text:before {
+			border-color: #f16d7f93;
+		}
+	}
+
+	.checkbox__text {
+		display: flex;
+
+		&::before {
+			content: '';
+			display: inline-block;
+			width: 1em;
+			height: 1em;
+			flex-shrink: 0;
+			flex-grow: 0;
+			border: 1px solid #EBEBEB;
+			margin-right: 0.8em;
+			background-repeat: no-repeat;
+			background-position: center center;
+			background-size: 50% 50%;
+		}
+	}
+}
+
+/* radio */
+
+label.radio {
+	display: inline-flex;
+	align-items: center;
+	user-select: none;
+
+	input {
+		position: absolute;
+		z-index: -1;
+		opacity: 0;
+
+		/* hover на радио */
+		&:not(:disabled):not(:checked)+.radio__text:hover::before {
+			border-color: #ffb3b3;
+		}
+
+		/* click на радио */
+		&:not(:disabled):active+.radio__text::before {
+			background-color: #ffb3b3;
+			border-color: #ffb3b3;
+		}
+
+		/* focus на радио */
+		&:focus+.radio__text::before {
+			box-shadow: 0 0 0 0.2rem rgba(255, 116, 116, 0.25);
+		}
+
+		/* focus, но не checked на радио */
+		&:focus:not(:checked)+.radio__text::before {
+			border-color: #80bdff;
+		}
+
+		/* checked на радио */
+		&:checked+.radio__text::before {
+			border-color: #ff6c6c;
+			background-color: #fd6b6b;
+			background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='%23fff'/%3e%3c/svg%3e");
+		}
+
+		/* disabled на радио */
+		&:disabled+.radio__text::before {
+			background-color: #efe9e9;
+		}
+	}
+
+	.radio__text {
+		display: inline-flex;
+		align-items: center;
+		user-select: none;
+
+		/* псевдоэлемент заменяющий радио кнопку */
+		&::before {
+			content: '';
+			display: inline-block;
+			width: 17px;
+			height: 17px;
+			flex-shrink: 0;
+			flex-grow: 0;
+			border: 1px solid #bdadad;
+			border-radius: 50%;
+			margin-right: 0.5em;
+			background-repeat: no-repeat;
+			background-position: center center;
+			background-size: 50% 50%;
+			transition: 0.5s;
+		}
+	}
+}
+
 .head {
 	background-color: #222222;
 }
@@ -263,13 +375,16 @@ body {
 	&__but {
 		display: flex;
 		justify-content: center;
-		align-items: center;
 		width: 47px;
 		height: 47px;
 		background: rgba(42, 42, 42, 0.15);
 
-		& img {
-			width: 30%;
+		& i {
+			align-self: center;
+
+			&.next {
+				color: #F16D7F;
+			}
 		}
 	}
 }
@@ -304,32 +419,85 @@ body {
 	/** Catalog */
 	&__filter {
 		width: 100%;
-		margin: 51px 16px 64px 16px;
+		margin: 51px 0px 64px 0px;
 		display: flex;
 
 		&-sort {
 			font-weight: 600;
 			font-size: 14px;
 			line-height: 17px;
-			width: 34%;
+			width: 360px;
+			position: relative;
+			padding-right: 30px;
+			padding-left: 17px;
+			box-sizing: border-box;
 
-			&-img {
-				margin-left: 11px;
+			&:hover {
+				box-shadow: 17px 19px 24px #00000021;
+				
+				.items__filter-sort-menu {
+					display: block;
+				}
+			}
+
+			&-header {
+
+				&-img {
+					margin-left: 11px;
+				}
+			}
+
+			&-menu {
+				display: none;
+				position: absolute;
+				margin-top: 16px;
+				background-color: #FFF;
+
+				&-header {
+					box-sizing: border-box;
+					padding: 11px;
+					font-size: 14px;
+					line-height: 17px;
+					color: #EF5B70;
+					border-bottom: 1px solid #EBEBEB;
+					border-left: 5px solid #EF5B70;
+				}
+				
 			}
 		}
 
 		&-filters {
 			display: flex;
+			color: #6F6E6E;
+			margin-left: 30px;
 
 			&-select {
+				position: relative;
+				padding-right: 20px;
 
-				&-img {
-					margin-left: 10px;
+				&-summ {
+					display: block;
+
+					i {
+						margin-left: 10px;
+					}
 				}
-			}
 
-			&-select:not(:first-child) {
-				margin-left: 28px;
+				&-list {
+					background-color: #fff;
+					position: absolute;
+					display: flex;
+					flex-direction: column;
+					z-index: 1;
+					width: 100%;
+					box-shadow: 6px 4px 35px #00000036;
+					box-sizing: border-box;
+					padding: 4px 9px;
+
+					label {
+						margin: 5px 0px;
+					}
+				}
 			}
 		}
 	}
@@ -338,6 +506,7 @@ body {
 		width: 100%;
 		display: flex;
 		justify-content: center;
+		margin-bottom: 96px;
 
 		&-element {
 			display: flex;
@@ -353,12 +522,18 @@ body {
 			line-height: 19px;
 			color: #c4c4c4;
 
-			&-num.current {
-				color: #EF5B70;
+			&-num {
+				cursor: pointer;
+
+				&.current {
+					color: #EF5B70;
+				}
 			}
 
-			&-img {
-
+			&-icon {
+				margin-top: 3px;
+				cursor: pointer;
+				color: #000
 			}
 		}
 	}
@@ -432,19 +607,45 @@ body {
 				padding-top: 65px;
 				border-top: 1px solid #EAEAEA;
 
+
 				&-select {
+					position: relative;
 					font-size: 14px;
 					line-height: 17px;
 					color: #6F6E6E;
+					box-sizing: border-box;
+					padding-right: 23px;
+
+					summary {
+						display: block;
+					}
 
 					&-img {
 						margin-left: 9px;
 					}
+
+					i {
+						margin-left: 9px;
+					}
+
+					&-list {
+						background-color: #fff;
+						position: absolute;
+						display: flex;
+						flex-direction: column;
+						z-index: 1;
+						width: 100%;
+						box-shadow: 6px 4px 35px #00000036;
+						box-sizing: border-box;
+						padding: 4px 9px;
+
+						label {
+							margin: 5px 0px;
+						}
+					}
 				}
 
-				&-select:not(:first-child) {
-					margin-left: 23px;
-				}
+
 			}
 
 			&-addCart {
@@ -463,10 +664,20 @@ body {
 					line-height: 19px;
 					color: #F26376;
 					padding: 7px 56px 8px 24px;
+					transition: 0.5s;
 
 					& img {
 						margin-right: 23px;
 						margin-top: 6px;
+					}
+
+					&:hover {
+						background-color: #F26376;
+						color: #fff;
+
+						& img {
+							filter: brightness(3);
+						}
 					}
 				}
 			}
@@ -479,6 +690,7 @@ body {
 		width: 360px;
 		background-color: #F8F8F8;
 		margin-bottom: 30px;
+		text-decoration: none;
 
 		&-header {
 			margin-left: 18px;
@@ -503,11 +715,9 @@ body {
 			margin-bottom: 18px;
 		}
 
-		&:hover {
-			& .items__item-image-AddToCart {
-				visibility: visible;
-				opacity: 1;
-			}
+		&:hover .items__item-image-AddToCart {
+			visibility: visible;
+			opacity: 1;
 		}
 
 		&-image {
@@ -728,17 +938,20 @@ body {
 			background-color: #fff;
 			margin-right: 7px;
 			display: flex;
+			justify-content: center;
 			transition: 0.5s;
+			text-decoration: none;
 
-			&-image {
-				margin: auto;
+			&-icon {
+				align-self: center;
+				color: #000;
 			}
 
 			&:hover {
 				background-color: #F16D7F;
 
-				& img {
-					filter: invert(1);
+				& i {
+					color: #fff;
 				}
 			}
 		}
@@ -1037,62 +1250,7 @@ body {
 			display: flex;
 			margin: 10px 0 33px 0;
 
-			&-radio {
-				position: absolute;
-				z-index: -1;
-				opacity: 0;
-
-				&+label {
-					display: inline-flex;
-					align-items: center;
-					user-select: none;
-					/* псевдоэлемент заменяющий радио кнопку */
-					&::before {
-						content: '';
-						display: inline-block;
-						width: 17px;
-						height: 17px;
-						flex-shrink: 0;
-						flex-grow: 0;
-						border: 1px solid #bdadad;
-						border-radius: 50%;
-						margin-right: 0.5em;
-						background-repeat: no-repeat;
-						background-position: center center;
-						background-size: 50% 50%;
-						transition: 0.5s;
-					}
-				}
-				/* hover на радио */
-				&:not(:disabled):not(:checked)+label:hover::before {
-					border-color: #ffb3b3;
-				}
-				/* click на радио */
-				&:not(:disabled):active+label::before {
-					background-color: #ffb3b3;
-					border-color: #ffb3b3;
-				}
-				/* focus на радио */
-				&:focus+label::before {
-					box-shadow: 0 0 0 0.2rem rgba(255, 116, 116, 0.25);
-				}
-				/* focus, но не checked на радио */
-				&:focus:not(:checked)+label::before {
-					border-color: #80bdff;
-				}
-				/* checked на радио */
-				&:checked+label::before {
-					border-color: #ff6c6c;
-					background-color: #fd6b6b;
-					background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='%23fff'/%3e%3c/svg%3e");
-				}
-				/* disabled на радио */
-				&:disabled+label::before {
-					background-color: #efe9e9;
-				}
-			}
-
-			&-label {
+			.radio__text {
 				font-weight: 300;
 				font-size: 11px;
 				line-height: 13px;
@@ -1155,3 +1313,4 @@ body {
 		}
 	}
 }
+
