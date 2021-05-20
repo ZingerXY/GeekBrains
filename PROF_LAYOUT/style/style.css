@@ -296,6 +296,7 @@ label.radio .radio__text::before {
 }
 
 .start__slogan-first {
+  display: block;
   margin: 0;
   font-weight: 900;
   font-size: 48px;
@@ -303,6 +304,7 @@ label.radio .radio__text::before {
 }
 
 .start__slogan-second {
+  display: block;
   margin: 0;
   font-weight: 700;
   font-size: 32px;
