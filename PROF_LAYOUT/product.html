@@ -59,9 +59,9 @@
 		</div>
 
 		<div class="slider">
-			<div class="slider__but"><img src="img/left.png" alt=""></div>
+			<div class="slider__but"><i class="fa fa-chevron-left fa-lg"></i></div>
 			<img src="img/slider-0.png" alt="">
-			<div class="slider__but"><img src="img/right.png" alt=""></div>
+			<div class="slider__but"><i class="next fa fa-chevron-right fa-lg"></i></div>
 		</div>
 
 		<div class="container">
@@ -81,18 +81,75 @@
 							<p class="items__product-center-info-cost">$561</p>
 						</div>
 						<div class="items__product-center-properties">
-							<div class="items__product-center-properties-select">
-								CHOOSE COLOR
-								<img class="items__product-center-properties-select-img" src="img/select.png" alt="select">
-							</div>
-							<div class="items__product-center-properties-select">
-								CHOOSE SIZE
-								<img class="items__product-center-properties-select-img" src="img/select.png" alt="select">
-							</div>
-							<div class="items__product-center-properties-select">
-								QUANTITY
-								<img class="items__product-center-properties-select-img" src="img/select.png" alt="select">
-							</div>
+							<details class="items__product-center-properties-select">
+								<summary>
+									CHOOSE COLOR<i class="fa fa-chevron-down"></i>
+								</summary>
+								<div class="items__product-center-properties-select-list">
+									<label class="checkbox">
+										<input type="checkbox" name="" id="">
+										<div class="checkbox__text">XS</div>
+									</label>
+									<label class="checkbox">
+										<input type="checkbox" name="" id="">
+										<div class="checkbox__text">S</div>
+									</label>
+									<label class="checkbox">
+										<input type="checkbox" name="" id="">
+										<div class="checkbox__text">M</div>
+									</label>
+									<label class="checkbox">
+										<input type="checkbox" name="" id="">
+										<div class="checkbox__text">L</div>
+									</label>
+								</div>
+							</details>
+							<details class="items__product-center-properties-select">
+								<summary>
+									CHOOSE SIZE<i class="fa fa-chevron-down"></i>
+								</summary>
+								<div class="items__product-center-properties-select-list">
+									<label class="checkbox">
+										<input type="checkbox" name="" id="">
+										<div class="checkbox__text">XS</div>
+									</label>
+									<label class="checkbox">
+										<input type="checkbox" name="" id="">
+										<div class="checkbox__text">S</div>
+									</label>
+									<label class="checkbox">
+										<input type="checkbox" name="" id="">
+										<div class="checkbox__text">M</div>
+									</label>
+									<label class="checkbox">
+										<input type="checkbox" name="" id="">
+										<div class="checkbox__text">L</div>
+									</label>
+								</div>
+							</details>
+							<details class="items__product-center-properties-select">
+								<summary>
+									QUANTITY<i class="fa fa-chevron-down"></i>
+								</summary>
+								<div class="items__product-center-properties-select-list">
+									<label class="checkbox">
+										<input type="checkbox" name="" id="">
+										<div class="checkbox__text">XS</div>
+									</label>
+									<label class="checkbox">
+										<input type="checkbox" name="" id="">
+										<div class="checkbox__text">S</div>
+									</label>
+									<label class="checkbox">
+										<input type="checkbox" name="" id="">
+										<div class="checkbox__text">M</div>
+									</label>
+									<label class="checkbox">
+										<input type="checkbox" name="" id="">
+										<div class="checkbox__text">L</div>
+									</label>
+								</div>
+							</details>
 						</div>
 						<div class="items__product-center-addCart">
 							<a href="" class="items__product-center-addCart-but">
@@ -101,7 +158,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="items__item">
+				<a href="#" class="items__item">
 					<div class="items__item-image">
 						<div class="items__item-image-AddToCart">
 							<button class="items__item-image-AddToCart-but"><img src="img/add-to-cart.png" alt=""> Add
@@ -113,8 +170,8 @@
 					<p class="items__item-text">Known for her sculptural takes on traditional tailoring, Australian
 						arbiter of cool Kym Ellery teams up with Moda Operandi.</p>
 					<div class="items__item-cost">$52.00</div>
-				</div>
-				<div class="items__item">
+				</a>
+				<a href="#" class="items__item">
 					<div class="items__item-image">
 						<div class="items__item-image-AddToCart">
 							<button class="items__item-image-AddToCart-but"><img src="img/add-to-cart.png" alt=""> Add
@@ -126,8 +183,8 @@
 					<p class="items__item-text">Known for her sculptural takes on traditional tailoring, Australian
 						arbiter of cool Kym Ellery teams up with Moda Operandi.</p>
 					<div class="items__item-cost">$52.00</div>
-				</div>
-				<div class="items__item">
+				</a>
+				<a href="#" class="items__item">
 					<div class="items__item-image">
 						<div class="items__item-image-AddToCart">
 							<button class="items__item-image-AddToCart-but"><img src="img/add-to-cart.png" alt=""> Add
@@ -139,7 +196,7 @@
 					<p class="items__item-text">Known for her sculptural takes on traditional tailoring, Australian
 						arbiter of cool Kym Ellery teams up with Moda Operandi.</p>
 					<div class="items__item-cost">$52.00</div>
-				</div>
+				</a>
 			</div>
 		</div>
 
@@ -196,16 +253,16 @@
 				<div class="copyr__left">© 2021 Brand All Rights Reserved.</div>
 				<div class="copyr__social">
 					<a href="#" class="copyr__social-item">
-						<img class="copyr__social-item-image" src="img/facebook.png" alt="">
+						<i class="copyr__social-item-icon fa fa-facebook"></i>
 					</a>
 					<a href="#" class="copyr__social-item">
-						<img class="copyr__social-item-image" src="img/instagram.png" alt="">
+						<i class="copyr__social-item-icon fa fa-instagram"></i>
 					</a>
 					<a href="#" class="copyr__social-item">
-						<img class="copyr__social-item-image" src="img/pinterest.png" alt="">
+						<i class="copyr__social-item-icon fa fa-pinterest-p"></i>
 					</a>
 					<a href="#" class="copyr__social-item">
-						<img class="copyr__social-item-image" src="img/twitter.png" alt="">
+						<i class="copyr__social-item-icon fa fa-twitter"></i>
 					</a>
 				</div>
 			</div>
