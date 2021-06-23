@@ -114,7 +114,7 @@ function AttachedPost(author, text, date) {
 }
 
 AttachedPost.prototype = Object.create(Post.prototype);
-AttachedPost.constructor = AttachedPost;
+AttachedPost.prototype.constructor = AttachedPost;
 
 AttachedPost.prototype.makeTextHighlighted = function() {
 	this.highlighted = true;
