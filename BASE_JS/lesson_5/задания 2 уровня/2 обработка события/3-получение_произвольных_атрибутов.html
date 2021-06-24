@@ -21,5 +21,18 @@
     3. При клике из event.target c помощью getAttribute() получите значение
     каждого атрибута и выведите в консоль.
     -->
+    <script>
+        let div = document.querySelector('div');
+        div.addEventListener('click', event => {
+            let elem = event.target;
+            console.log(
+                elem.getAttribute('class'),
+                elem.getAttribute('id'),
+                elem.getAttribute('tabindex'),
+                elem.getAttribute('aria-labelledby'),
+                elem.getAttribute('aria-hidden')
+            );
+        })
+    </script>
 </body>
 </html>

@@ -19,7 +19,11 @@
     -->
 
     <script>
-        
+        document.querySelectorAll('b').forEach(b => {
+            if (!b.classList.contains('sign')) {
+                b.classList.add('sign');
+            }
+        })
     </script>
 </body>
 </html>
