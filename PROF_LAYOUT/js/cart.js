@@ -147,11 +147,3 @@ class Product {
 		this.count++;
 	}
 }
-
-window.addEventListener('load', () => {
-	const cart = new Cart;
-	cart.init();
-})
-
-
-

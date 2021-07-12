@@ -504,6 +504,12 @@ label.radio {
 
 /* Product **/
 
+#goods_list {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+}
+
 .items {
 	display: flex;
 	flex-wrap: wrap;
