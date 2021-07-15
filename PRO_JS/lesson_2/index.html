@@ -1,0 +1,19 @@
+<meta charset="UTF-8">
+<script src="app.js"></script>
+
+<script>
+	/**
+	 * Тестирование
+	 */
+	const burger = new Hamburger('большой', 'сыр');
+	burger.addTopping('мазик');
+	burger.addTopping('приправа');
+	burger.removeTopping('приправа');
+	const size = burger.getSize();
+	const stuffing = burger.getStuffing();
+	const toppings = burger.getToppings();
+	const price = burger.calculatePrice();
+	const kkal = burger.calculateCalories();
+	console.log(burger);
+	console.log([size, stuffing, toppings, price, kkal].join("\n"));
+</script>
