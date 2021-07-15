@@ -4,6 +4,10 @@ class Cart {
 	products = [];
 	sumCount = 0;
 
+	constructor(catalog) {
+		this.catalog = catalog;
+	}
+
 	init() {
 		let boxCart = document.querySelector('.right__cart');
 
@@ -38,10 +42,9 @@ class Cart {
 	addToCart(event) {
 		event.preventDefault();
 		let productCard = event.target.closest('a');
-		let name = productCard.querySelector('.items__item-header').innerText;
-		let cost = productCard.querySelector('.items__item-cost').innerText;
-		cost = +cost.slice(1);
-		this.addProduct(new Product(productCard, name, cost));
+		let id = productCard.dataset.id;
+		let prod = this.catalog.getProductById(id);
+		this.addProduct(new Product(prod.id, prod.name, prod.descript, prod.img, prod.cost));
 	}
 
 	showCartTable(event) {
@@ -60,12 +63,8 @@ class Cart {
 		let tableHTML = '<table><tr><th>Название</th><th>Колличество</th><th>Цена за шт.</th><th>Итог</th></tr>';
 		let sumCost = 0;
 		for (const prod of this.products) {
-			let name = prod.name;
-			let count = prod.count;
-			let cost = prod.cost;
-			let calcSum = prod.count * prod.cost;
-			tableHTML += `<tr><td>${name}</td><td>${count} шт.</td><td>$${cost}</td><td>$${calcSum}</td></tr>`;
-			sumCost += calcSum;
+			tableHTML += prod.renderToCart();
+			sumCost += prod.calcSum();
 		}
 		tableHTML += `<tr><td colspan="3" class='total'>Итого:</td><td>$${sumCost}</td></tr></table>`;
 		this.table.innerHTML = tableHTML;
@@ -73,7 +72,7 @@ class Cart {
 
 	checkProduct(product) {
 		for (const prod of this.products) {
-			if (prod.cardNode == product.cardNode) {
+			if (prod.id == product.id) {
 				return prod;
 			}
 		}
@@ -129,21 +128,8 @@ class Cart {
 		if (!products) {
 			return;
 		}
-		this.products = JSON.parse(products);
+		this.products = JSON.parse(products).map(e => new Product(e.id, e.name, e.descript, e.img, e.cost, e.types, e.count));
 		this.calcSumCount();
 		this.updateTable();
-	}
-}
-
-class Product {
-	constructor(cardNode, name, cost) {
-		this.cardNode = cardNode;
-		this.name = name;
-		this.cost = cost;
-		this.count = 1;
-	}
-
-	addCount() {
-		this.count++;
 	}
 }

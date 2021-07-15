@@ -1,7 +1,8 @@
+'use strict';
+
 window.addEventListener('load', () => {
-	if (typeof renderGoodsList == "function") {
-		renderGoodsList(goods);
-	}
-	const cart = new Cart;
+	const catalog = new Catalog(goods);
+	catalog.render();
+	const cart = new Cart(catalog);
 	cart.init();
 });
