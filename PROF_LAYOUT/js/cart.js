@@ -8,6 +8,9 @@ class Cart {
 		this.catalog = catalog;
 	}
 
+	/**
+	 * Инициализирует элементы управления корзиной
+	 */
 	init() {
 		let boxCart = document.querySelector('.right__cart');
 
@@ -32,14 +35,18 @@ class Cart {
 		this.clear.addEventListener('click', this.clearCart.bind(this));
 
 		document.querySelectorAll('.items__item-image-AddToCart-but').forEach((but) => {
-			but.addEventListener('click', this.addToCart.bind(this));
+			but.addEventListener('click', this.add.bind(this));
 		});
 
 		this.loadCart();
 		this.showCount();
 	}
 
-	addToCart(event) {
+	/**
+	 * Событие добавления товара в корзину
+	 * @param {MouseEvent} event 
+	 */
+	add(event) {
 		event.preventDefault();
 		let productCard = event.target.closest('a');
 		let id = productCard.dataset.id;
@@ -47,6 +54,24 @@ class Cart {
 		this.addProduct(new Product(prod.id, prod.name, prod.descript, prod.img, prod.cost));
 	}
 
+	/**
+	 * Событие удаление товара из корзины
+	 * @param {MouseEvent} event 
+	 */
+	remove(event) {
+		let id = event.target.dataset.id;
+		let prod = this.catalog.getProductById(id);
+		this.removeProduct(prod);
+		event.preventDefault();
+		if (this.sumCount) {
+			event.stopPropagation();
+		}
+	}
+
+	/**
+	 * Событие отображения товаров корзины
+	 * @param {MouseEvent} event 
+	 */
 	showCartTable(event) {
 		if (!this.tableBox.style.display || !this.sumCount) {
 			this.tableBox.style.display = 'none';
@@ -59,6 +84,9 @@ class Cart {
 		}
 	}
 
+	/**
+	 * Обновление таблицы с товарами в корзине
+	 */
 	updateTable() {
 		let tableHTML = '<table><tr><th>Название</th><th>Колличество</th><th>Цена за шт.</th><th>Итог</th></tr>';
 		let sumCost = 0;
@@ -68,8 +96,17 @@ class Cart {
 		}
 		tableHTML += `<tr><td colspan="3" class='total'>Итого:</td><td>$${sumCost}</td></tr></table>`;
 		this.table.innerHTML = tableHTML;
+
+		this.table.querySelectorAll('.removeGoodsItem').forEach((but) => {
+			but.addEventListener('click', this.remove.bind(this));
+		});
 	}
 
+	/**
+	 * Проверяет наличие товара в корзине
+	 * @param {Product} product 
+	 * @returns {Product|boolean} Возращает продукт или false
+	 */
 	checkProduct(product) {
 		for (const prod of this.products) {
 			if (prod.id == product.id) {
@@ -79,6 +116,10 @@ class Cart {
 		return false;
 	}
 
+	/**
+	 * Добавляет товар в корзину
+	 * @param {Product} product 
+	 */
 	addProduct(product) {
 		let prod = this.checkProduct(product);
 		if (prod) {
@@ -92,6 +133,22 @@ class Cart {
 		this.saveCart();
 	}
 
+	/**
+	 * Удаляет товар из корзины
+	 * @param {Product} product 
+	 */
+	removeProduct(product) {
+		this.products = this.products.filter(prod => prod.id != product.id);
+		this.calcSumCount();
+		this.showCount();
+		this.updateTable();
+		this.saveCart();
+	}
+
+	/**
+	 * Отображает количество товара в корзине
+	 * @returns 
+	 */
 	showCount() {
 		if (!this.sumCount) {
 			this.inCart.style.display = 'none';
@@ -101,6 +158,9 @@ class Cart {
 		this.inCart.innerHTML = this.sumCount;
 	}
 
+	/**
+	 * Расчитывает количество товара в корзине
+	 */
 	calcSumCount() {
 		this.sumCount = 0;
 		for (const prod of this.products) {
@@ -108,6 +168,10 @@ class Cart {
 		}
 	}
 
+	/**
+	 * Событие очистки корзины
+	 * @param {MouseEvent} event 
+	 */
 	clearCart(event) {
 		this.sumCount = 0;
 		this.products = [];
@@ -119,10 +183,17 @@ class Cart {
 		event.preventDefault();
 	}
 
+	/**
+	 * Сохранение корзины
+	 */
 	saveCart() {
 		localStorage.setItem('basket', JSON.stringify(this.products));
 	}
 
+	/**
+	 * Загрузка корзины
+	 * @returns 
+	 */
 	loadCart() {
 		let products = localStorage.getItem('basket', false)
 		if (!products) {
