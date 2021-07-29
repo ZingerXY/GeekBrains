@@ -18,8 +18,15 @@
 					<a href="index.html" class="left__logo">
 						<img src="img/logo.png" alt="logo">
 					</a>
-					<div class="left__search">
-						<img src="img/search.svg" alt="search">
+					<div class="left__search vue">
+						<input class="left__search-input" type="text" v-if="showSearch" v-model="searchLine">
+						<img class="left__search-img" src="img/search.svg" alt="search" v-on:click="visibleSearch">
+						<div class="left__search-drop" v-if="searchGoods.length && showSearch">
+							<div class="left__search-drop-list">
+								<div class="left__search-drop-list-item" v-for="good of searchGoods">{{ good.name }} ${{ good.cost }}
+								</div>
+							</div>
+						</div>
 					</div>
 				</div>
 
@@ -218,6 +225,7 @@
 			</div>
 		</div>
 	</footer>
+	<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
 	<script src="js/product.js"></script>
 	<script src="js/catalog.js"></script>
 	<script src="js/cart.js"></script>

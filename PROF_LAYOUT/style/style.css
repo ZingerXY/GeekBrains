@@ -229,6 +229,31 @@ label.radio .radio__text::before {
 
 .left__search {
   margin-top: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: relative;
+}
+
+.left__search-input {
+  margin-right: 5px;
+  width: 260px;
+}
+
+.left__search-drop {
+  position: absolute;
+  background-color: #FFF;
+  width: 263px;
+  top: 30px;
+  left: 1px;
+}
+
+.left__search-drop-list {
+  padding: 7px;
+}
+
+.left__search-drop-list-item {
+  margin-bottom: 5px;
 }
 
 .right {
