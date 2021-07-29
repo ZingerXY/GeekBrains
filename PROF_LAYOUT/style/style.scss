@@ -235,6 +235,29 @@ label.radio {
 
 	&__search {
 		margin-top: 10px;
+		display: flex;
+		position: relative;
+
+		&-input {
+			margin-right: 5px;
+			width: 260px;
+		}
+
+		&-drop {
+			position: absolute;
+			background-color: #FFF;
+			width: 263px;
+			top: 30px;
+			left: 1px;
+
+			&-list {
+				padding: 7px;
+
+				&-item {
+					margin-bottom: 5px;
+				}
+			}
+		}
 	}
 }
 
