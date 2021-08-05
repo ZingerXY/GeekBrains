@@ -1,25 +1,73 @@
 'use strict';
 
-const vue = new Vue({
-	el: '.vue',
-	data: {
-		showSearch: false,
-		goods: [],
-		searchLine: '',
-		sumCount: 0,
-		showCart: false,
-		goodsList: [],
+Vue.component('search-input', {
+	data() {
+		return {
+			showSearch: false,
+			searchLine: '',
+		}
 	},
+	template: `
+		<div class="left__search">
+			<input class="left__search-input" type="text" v-if="showSearch" v-model="searchLine">
+			<img class="left__search-img" src="img/search.svg" alt="search" v-on:click="visibleSearch">
+			<div class="left__search-drop" v-if="searchGoods.length && showSearch">
+				<div class="left__search-drop-list">
+					<div class="left__search-drop-list-item" v-for="good of searchGoods">{{ good.name }} $ {{ good.cost }}</div>
+				</div>
+			</div>
+		</div>`,
+	props: ['goods_list'],
 	computed: {
 		searchGoods() {
-			return this.goods.filter(e => this.searchLine && e.name.includes(this.searchLine));
+			return this.goods_list.filter(e => this.searchLine && e.name.includes(this.searchLine));
 		}
 	},
 	methods: {
 		visibleSearch() {
+			this.searchLine = '';
 			this.showSearch = !this.showSearch;
 		},
+	}
+});
 
+Vue.component('error-msg', {
+	template: `
+		<div class="error__msg">
+			<strong>Ошибка! </strong>
+			{{ msg }}
+		</div>`,
+	props: ['msg'],
+});
+
+const vue = new Vue({
+	el: '#vue',
+	data() {
+		return {
+			goods: [],
+			sumCount: 0,
+			showCart: false,
+			cart: [],
+			errorMsg: ''
+		}
+	},
+	computed: {
+	},
+	methods: {
+		addHandler(id) {
+			const check = this.cart.find(good => good.id === id);
+			if (check) {
+				check.count++;
+				this.updateGoods(this.cart);
+				return;
+			}
+			const good = this.goods.find(good => good.id === id);
+			this.cart.push(good);
+			this.updateGoods(this.cart);
+		},
+		updateGoods(cart) {
+			localStorage.setItem('basket', JSON.stringify(cart));
+		}
 	},
 	mounted() {
 		// fetch('catalog.json')
@@ -27,13 +75,11 @@ const vue = new Vue({
 			.then(response => response.json())
 			.then(data => {
 				this.goods = data;
-				const catalog = new Catalog(data, this);
-				catalog.render();
-				const cart = new Cart(catalog, this);
-				cart.init();
 			})
 			.catch((err) => {
+				this.errorMsg = err;
 				console.log(err)
 			});
+		this.cart = JSON.parse(localStorage.getItem('basket', '[]'));
 	}
 });

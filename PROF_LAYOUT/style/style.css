@@ -200,6 +200,13 @@ label.radio .radio__text::before {
   transition: 0.5s;
 }
 
+.error__msg {
+  padding: 10px 20px;
+  background: #f3beb8;
+  border: 1px solid #f09898;
+  width: 100%;
+}
+
 .head {
   background-color: #222222;
 }
@@ -389,6 +396,17 @@ label.radio .radio__text::before {
   line-height: 17px;
   float: right;
   padding: 5px 10px;
+  cursor: pointer;
+  font-family: 'Arial';
+  text-decoration: none;
+  margin-right: 15px;
+}
+
+.right__cart-table .remove {
+  cursor: pointer;
+}
+
+.right__cart .pointer {
   cursor: pointer;
 }
 

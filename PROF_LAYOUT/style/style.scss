@@ -215,6 +215,13 @@ label.radio {
 	}
 }
 
+.error__msg {
+	padding: 10px 20px;
+	background: #f3beb8;
+	border: 1px solid #f09898;
+	width: 100%;
+}
+
 .head {
 	background-color: #222222;
 }
@@ -384,7 +391,18 @@ label.radio {
 				float: right;
 				padding: 5px 10px;
 				cursor: pointer;
+				font-family: 'Arial';
+				text-decoration: none;
+				margin-right: 15px;
 			}
+
+			.remove {
+				cursor: pointer;
+			}
+		}
+
+		.pointer {
+			cursor: pointer;
 		}
 	}
 }

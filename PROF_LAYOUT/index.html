@@ -11,217 +11,210 @@
 </head>
 
 <body>
-	<header class="head">
-		<div class="container">
-			<div class="header">
-				<div class="left">
-					<a href="index.html" class="left__logo">
-						<img src="img/logo.png" alt="logo">
-					</a>
-					<div class="left__search vue">
-						<input class="left__search-input" type="text" v-if="showSearch" v-model="searchLine">
-						<img class="left__search-img" src="img/search.svg" alt="search" v-on:click="visibleSearch">
-						<div class="left__search-drop" v-if="searchGoods.length && showSearch">
-							<div class="left__search-drop-list">
-								<div class="left__search-drop-list-item" v-for="good of searchGoods">{{ good.name }} ${{ good.cost }}</div>
-							</div>
-						</div>
-					</div>
-				</div>
-
-				<div class="right">
-
-					<div class="right__burger menu">
-						<input class="right__burger-check" type="checkbox" id="burger_menu">
-						<label class="right__burger-label" for="burger_menu">
-							<img src="img/burger.svg" alt="burger">
-						</label>
-						<div class="right__burger-drop">
-							<label class="right__burger-drop-close" for="burger_menu"><i class="fa fa-times fa-2x"></i></label>
-							<div class="right__burger-drop-title">MENU</div>
-							<div class="right__burger-drop-head">
-								MAN
-							</div>
-							<div class="right__burger-drop-item">
-								Accessories
-							</div>
-							<div class="right__burger-drop-item">
-								Bags
-							</div>
-							<div class="right__burger-drop-item">
-								Denim
-							</div>
-							<div class="right__burger-drop-item">
-								T-Shirts
-							</div>
-							<div class="right__burger-drop-head">
-								WOMAN
-							</div>
-							<div class="right__burger-drop-item">
-								Accessories
-							</div>
-							<div class="right__burger-drop-item">
-								Jackets & Coats
-							</div>
-							<div class="right__burger-drop-item">
-								Polos
-							</div>
-							<div class="right__burger-drop-item">
-								T-Shirts
-							</div>
-							<div class="right__burger-drop-item">
-								Shirts
-							</div>
-							<div class="right__burger-drop-head">
-								KIDS
-							</div>
-							<div class="right__burger-drop-item">
-								Accessories
-							</div>
-							<div class="right__burger-drop-item">
-								Jackets & Coats
-							</div>
-							<div class="right__burger-drop-item">
-								Polos
-							</div>
-							<div class="right__burger-drop-item">
-								T-Shirts
-							</div>
-							<div class="right__burger-drop-item">
-								Shirts
-							</div>
-							<div class="right__burger-drop-item">
-								Bags
-							</div>
-						</div>
-					</div>
-					<a href="registration.html" class="right__person menu">
-						<img src="img/person.svg" alt="person">
-					</a>
-					<a href="cart.html" class="right__cart menu">
-						<img src="img/cart.svg" alt="cart">
-					</a>
-				</div>
-			</div>
-		</div>
-	</header>
-
-	<main class="main">
-		<div class="start">
-			<div class="start__photo">
-				<img src="img/main-photo.png" alt="">
-			</div>
-			<h1 class="start__slogan">
-				<span class="start__slogan-first">THE BRAND</span>
-				<span class="start__slogan-second">
-					OF LUXERIOUS
-					<span class="start__slogan-second-pink">FASHION</span>
-				</span>
-			</h1>
-		</div>
-
-		<div class="container">
-			<div class="offers">
-				<a href="catalog.html" class="offers__item">
-					<div class="offers__item-text-first">30% OFF</div>
-					<div class="offers__item-text-second">FOR WOMEN</div>
-				</a>
-				<a href="catalog.html" class="offers__item">
-					<div class="offers__item-text-first">HOT DEAL</div>
-					<div class="offers__item-text-second">FOR MEN</div>
-				</a>
-				<a href="catalog.html" class="offers__item">
-					<div class="offers__item-text-first">NEW ARRIVALS</div>
-					<div class="offers__item-text-second">FOR KIDS</div>
-				</a>
-				<a href="catalog.html" class="offers__item">
-					<div class="offers__item-text-first">LUXIROUS & TRENDY</div>
-					<div class="offers__item-text-second">ACCESORIES</div>
-				</a>
-			</div>
-
-			<div class="items">
-				<div class="items__header">
-					<h2 class="items__header-first">Fetured Items</h2>
-					<div class="items__header-second">Shop for items based on what we featured in this week</div>
-				</div>
-				<div id='goods_list'></div>
-				<div class="items__allProduct">
-					<a href="catalog.html" class="items__allProduct-button">Browse All Product</a>
-				</div>
-			</div>
-		</div>
-
-		<div class="end">
+	<div id="vue">
+		<header class="head">
 			<div class="container">
-				<div class="feature">
-					<div class="feature__item">
-						<div class="feature__item-icon"><img src="img/delivery.png" alt="delivery"></div>
-						<div class="feature__item-header">Free Delivery</div>
-						<div class="feature__item-text">Worldwide delivery on all. Authorit tively morph next-generation
-							innov tion with
-							extensive models.</div>
+				<div class="header">
+					<div class="left">
+						<a href="index.html" class="left__logo">
+							<img src="img/logo.png" alt="logo">
+						</a>
+						<search-input v-bind:goods_list="goods"></search-input>
 					</div>
-					<div class="feature__item">
-						<div class="feature__item-icon"><img src="img/discount.png" alt="discount"></div>
-						<div class="feature__item-header">Sales & discounts</div>
-						<div class="feature__item-text">Worldwide delivery on all. Authorit tively morph next-generation
-							innov tion with
-							extensive models.</div>
-					</div>
-					<div class="feature__item">
-						<div class="feature__item-icon"><img src="img/quality.png" alt="quality"></div>
-						<div class="feature__item-header">Quality assurance</div>
-						<div class="feature__item-text">Worldwide delivery on all. Authorit tively morph next-generation
-							innov tion with
-							extensive models.</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</main>
 
-	<footer>
-		<div class="subscribe">
-			<div class="sub container">
-				<div class="sub__info">
-					<img src="img/photo.png" alt="photo">
-					<p class="sub__info-text">“Vestibulum quis porttitor dui! Quisque viverra nunc mi, <i>a pulvinar
-							purus condimentum</i>“</p>
-				</div>
-				<div class="sub__subscribe">
-					<div class="sub__subscribe-header">SUBSCRIBE</div>
-					<div class="sub__subscribe-title">FOR OUR NEWLETTER AND PROMOTION</div>
-					<form class="sub__subscribe-form">
-						<input name="email" class="sub__subscribe-form-email" type="email"
-							placeholder="Enter Your Email" required>
-						<button class="sub__subscribe-form-but" type="submit">Subscribe</button>
-					</form>
+					<div class="right">
+
+						<div class="right__burger menu">
+							<input class="right__burger-check" type="checkbox" id="burger_menu">
+							<label class="right__burger-label" for="burger_menu">
+								<img src="img/burger.svg" alt="burger">
+							</label>
+							<div class="right__burger-drop">
+								<label class="right__burger-drop-close" for="burger_menu"><i class="fa fa-times fa-2x"></i></label>
+								<div class="right__burger-drop-title">MENU</div>
+								<div class="right__burger-drop-head">
+									MAN
+								</div>
+								<div class="right__burger-drop-item">
+									Accessories
+								</div>
+								<div class="right__burger-drop-item">
+									Bags
+								</div>
+								<div class="right__burger-drop-item">
+									Denim
+								</div>
+								<div class="right__burger-drop-item">
+									T-Shirts
+								</div>
+								<div class="right__burger-drop-head">
+									WOMAN
+								</div>
+								<div class="right__burger-drop-item">
+									Accessories
+								</div>
+								<div class="right__burger-drop-item">
+									Jackets & Coats
+								</div>
+								<div class="right__burger-drop-item">
+									Polos
+								</div>
+								<div class="right__burger-drop-item">
+									T-Shirts
+								</div>
+								<div class="right__burger-drop-item">
+									Shirts
+								</div>
+								<div class="right__burger-drop-head">
+									KIDS
+								</div>
+								<div class="right__burger-drop-item">
+									Accessories
+								</div>
+								<div class="right__burger-drop-item">
+									Jackets & Coats
+								</div>
+								<div class="right__burger-drop-item">
+									Polos
+								</div>
+								<div class="right__burger-drop-item">
+									T-Shirts
+								</div>
+								<div class="right__burger-drop-item">
+									Shirts
+								</div>
+								<div class="right__burger-drop-item">
+									Bags
+								</div>
+							</div>
+						</div>
+						<a href="registration.html" class="right__person menu">
+							<img src="img/person.svg" alt="person">
+						</a>
+						<cart-show v-bind:goods_cart.sync="cart" @update:goods_cart="updateGoods"></cart-show>
+					</div>
 				</div>
 			</div>
-		</div>
-		<div class="copyright">
-			<div class="copyr container">
-				<div class="copyr__left">© 2021 Brand All Rights Reserved.</div>
-				<div class="copyr__social">
-					<a href="#" class="copyr__social-item">
-						<i class="copyr__social-item-icon fa fa-facebook"></i>
+		</header>
+
+		<main class="main">
+			<div class="start">
+				<div class="start__photo">
+					<img src="img/main-photo.png" alt="">
+				</div>
+				<h1 class="start__slogan">
+					<span class="start__slogan-first">THE BRAND</span>
+					<span class="start__slogan-second">
+						OF LUXERIOUS
+						<span class="start__slogan-second-pink">FASHION</span>
+					</span>
+				</h1>
+			</div>
+
+			<div class="container">
+				<div class="offers">
+					<a href="catalog.html" class="offers__item">
+						<div class="offers__item-text-first">30% OFF</div>
+						<div class="offers__item-text-second">FOR WOMEN</div>
 					</a>
-					<a href="#" class="copyr__social-item">
-						<i class="copyr__social-item-icon fa fa-instagram"></i>
+					<a href="catalog.html" class="offers__item">
+						<div class="offers__item-text-first">HOT DEAL</div>
+						<div class="offers__item-text-second">FOR MEN</div>
 					</a>
-					<a href="#" class="copyr__social-item">
-						<i class="copyr__social-item-icon fa fa-pinterest-p"></i>
+					<a href="catalog.html" class="offers__item">
+						<div class="offers__item-text-first">NEW ARRIVALS</div>
+						<div class="offers__item-text-second">FOR KIDS</div>
 					</a>
-					<a href="#" class="copyr__social-item">
-						<i class="copyr__social-item-icon fa fa-twitter"></i>
+					<a href="catalog.html" class="offers__item">
+						<div class="offers__item-text-first">LUXIROUS & TRENDY</div>
+						<div class="offers__item-text-second">ACCESORIES</div>
 					</a>
 				</div>
+
+				<div class="items">
+					<div class="items__header">
+						<h2 class="items__header-first">Fetured Items</h2>
+						<div class="items__header-second">Shop for items based on what we featured in this week</div>
+					</div>
+					<catalog-list v-bind:goods_list="goods" v-on:add="addHandler"></catalog-list>
+					<error-msg v-if="errorMsg" v-bind:msg="errorMsg"></error-msg>
+					<div class="items__allProduct">
+						<a href="catalog.html" class="items__allProduct-button">Browse All Product</a>
+					</div>
+				</div>
 			</div>
-		</div>
-	</footer>
+
+			<div class="end">
+				<div class="container">
+					<div class="feature">
+						<div class="feature__item">
+							<div class="feature__item-icon"><img src="img/delivery.png" alt="delivery"></div>
+							<div class="feature__item-header">Free Delivery</div>
+							<div class="feature__item-text">Worldwide delivery on all. Authorit tively morph next-generation
+								innov tion with
+								extensive models.</div>
+						</div>
+						<div class="feature__item">
+							<div class="feature__item-icon"><img src="img/discount.png" alt="discount"></div>
+							<div class="feature__item-header">Sales & discounts</div>
+							<div class="feature__item-text">Worldwide delivery on all. Authorit tively morph next-generation
+								innov tion with
+								extensive models.</div>
+						</div>
+						<div class="feature__item">
+							<div class="feature__item-icon"><img src="img/quality.png" alt="quality"></div>
+							<div class="feature__item-header">Quality assurance</div>
+							<div class="feature__item-text">Worldwide delivery on all. Authorit tively morph next-generation
+								innov tion with
+								extensive models.</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</main>
+
+		<footer>
+			<div class="subscribe">
+				<div class="sub container">
+					<div class="sub__info">
+						<img src="img/photo.png" alt="photo">
+						<p class="sub__info-text">“Vestibulum quis porttitor dui! Quisque viverra nunc mi, <i>a pulvinar
+								purus condimentum</i>“</p>
+					</div>
+					<div class="sub__subscribe">
+						<div class="sub__subscribe-header">SUBSCRIBE</div>
+						<div class="sub__subscribe-title">FOR OUR NEWLETTER AND PROMOTION</div>
+						<form class="sub__subscribe-form">
+							<input name="email" class="sub__subscribe-form-email" type="email"
+								placeholder="Enter Your Email" required>
+							<button class="sub__subscribe-form-but" type="submit">Subscribe</button>
+						</form>
+					</div>
+				</div>
+			</div>
+			<div class="copyright">
+				<div class="copyr container">
+					<div class="copyr__left">© 2021 Brand All Rights Reserved.</div>
+					<div class="copyr__social">
+						<a href="#" class="copyr__social-item">
+							<i class="copyr__social-item-icon fa fa-facebook"></i>
+						</a>
+						<a href="#" class="copyr__social-item">
+							<i class="copyr__social-item-icon fa fa-instagram"></i>
+						</a>
+						<a href="#" class="copyr__social-item">
+							<i class="copyr__social-item-icon fa fa-pinterest-p"></i>
+						</a>
+						<a href="#" class="copyr__social-item">
+							<i class="copyr__social-item-icon fa fa-twitter"></i>
+						</a>
+					</div>
+				</div>
+			</div>
+		</footer>
+
+	</div>
 	<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
-	<script src="js/product.js"></script>
 	<script src="js/catalog.js"></script>
 	<script src="js/cart.js"></script>
 	<script src="js/main.js"></script>
