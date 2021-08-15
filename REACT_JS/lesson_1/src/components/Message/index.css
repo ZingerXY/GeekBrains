@@ -1,0 +1,13 @@
+.message {
+	display: flex;
+}
+
+.text {
+	margin: 10px auto;
+	padding: 5px;
+	border: 1px solid red;
+	color: red;
+	font-weight: bold;
+	width: 200px;
+	text-align: center;
+}
