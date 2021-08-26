@@ -1,0 +1,27 @@
+.container {
+	display: flex;
+	justify-content: center;
+}
+
+.msgText {
+	font-size: 20px;
+	padding: 10px 5px;
+	border-radius: 20px 0px 0px 20px;
+	border: 1px solid black;
+	background-color: #f9f9f9;
+	border-right: 0px;
+	outline: none;
+}
+
+.msgText:focus {
+	box-shadow: 0 0 3px black;
+}
+
+.msgText:hover {
+	box-shadow: 0 0 3px black;
+}
+
+.butSend {
+	padding: 5px 20px 5px 15px;
+	border-radius: 0px 20px 20px 0px;
+}
