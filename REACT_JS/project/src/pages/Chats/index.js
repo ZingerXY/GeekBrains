@@ -1,7 +1,7 @@
 import { useState } from "react"
 import { ChatList } from "../../components/ChatList";
 import { Chat } from "../Chat";
-import { Grid } from "@material-ui/core";
+import { Grid, Typography } from "@material-ui/core";
 
 import { Route } from "react-router-dom"
 
@@ -36,18 +36,12 @@ const createMsg = (author, text, date) => ({
 	author, text, date,
 })
 
-export const Chats = (props) => {
+export const Chats = () => {
 	const [chats, setChats] = useState(initialChats);
-	/**
-	 * Не нашел другого способа обновления компонента кроме создания 
-	 * счетчика который обновляется при обновлении списка чатов
-	 */
-	const [count, setCount] = useState(0);
 
 	const addMsg = (id, message) => {
 		chats[id].messages = [...chats[id].messages, message]
-		setChats(chats);
-		setCount(pCount => ++pCount);
+		setChats(Object.assign({}, chats));
 	}
 
 	const addChat = (id) => {
@@ -84,35 +78,39 @@ export const Chats = (props) => {
 
 	const deleteChat = (chatId) => {
 		delete chats[chatId];
-		setChats(chats);
-		setCount(pCount => ++pCount);
+		setChats(Object.assign({}, chats));
 	}
 
 	return (
-		<Grid container spacing={2}>
-			<Grid item xs={2} md={2}>
-				<ChatList chats={chats} onRemove={deleteChat} addChat={addChat} />
+		<>
+			<Typography variant="h6">
+				Chats
+			</Typography>
+			<Grid container spacing={2}>
+				<Grid item xs={2} md={2}>
+					<ChatList chats={chats} onRemove={deleteChat} addChat={addChat} />
+				</Grid>
+				<Grid item xs={10} md={10}>
+					<Route path='/chats/:chatId'>
+						<Chat chats={chats}>
+							{(chatId) => (
+								<>
+									<h3>{chats[chatId].name}</h3>
+									<MessageList chatId={chatId}>
+										{(chatId) => 
+											chats[chatId].messages.map(({author, text, date}) => 
+												<ListItem key={date}>
+													<ListItemText primary={author} secondary={text} />
+												</ListItem>)
+										}
+									</MessageList>
+									<MessageForm onSubmit={sendMsg} chatId={chatId}/>
+								</>
+							)}
+						</Chat>
+					</Route>
+				</Grid>
 			</Grid>
-			<Grid item xs={10} md={10}>
-				<Route path='/chats/:chatId'>
-					<Chat chats={chats}>
-						{(chatId) => (
-							<>
-								<h3>{chats[chatId].name}</h3>
-								<MessageList chatId={chatId}>
-									{(chatId) => 
-										chats[chatId].messages.map(({author, text, date}) => 
-											<ListItem key={date}>
-												<ListItemText primary={author} secondary={text} />
-											</ListItem>)
-									}
-								</MessageList>
-								<MessageForm onSubmit={sendMsg} chatId={chatId}/>
-							</>
-						)}
-					</Chat>
-				</Route>
-			</Grid>
-		</Grid>
+		</>
 	)
 }

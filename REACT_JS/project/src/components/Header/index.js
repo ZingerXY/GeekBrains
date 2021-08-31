@@ -1,27 +1,29 @@
 import React from "react"
-import { Link as LinkRouter } from "react-router-dom"
+import { NavLink } from "react-router-dom"
 import { routes } from "../../pages/routes"
-import { Link, makeStyles, Toolbar } from "@material-ui/core"
+import { Button, makeStyles, Toolbar, Typography } from "@material-ui/core"
 
 const useStyles = makeStyles((theme) => ({
-	tolbarSecondary: {
-		justifyContent: 'center',
-		overflow: 'auto',
-	},
 	toolbarLink: {
 		padding: theme.spacing(1),
 		flexShrink: 0,
-	}
+	},
+	title: {
+		flexGrow: 1,
+	},
 }));
 
 export const Header = (props) => {
 	const classes = useStyles();
 
 	return (
-		<Toolbar component="nav" variant="dense" className={classes.tolbarSecondary}>
+		<Toolbar>
+			<Typography variant="h6" className={classes.title}>
+				Project
+			</Typography>
 		{
 			routes.map(({name, path}, index) => (
-				<Link key={index} component={LinkRouter} to={path} className={classes.toolbarLink}>{name}</Link>
+				<Button component={NavLink} to={path} color="inherit" key={index}>{name}</Button>
 			))
 		}
 		</Toolbar>

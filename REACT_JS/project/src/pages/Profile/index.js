@@ -1,14 +1,28 @@
-import React from "react"
-import { useHistory } from "react-router-dom"
-
+import { FormControlLabel, Switch, Typography } from "@material-ui/core";
+import {useDispatch, useSelector} from 'react-redux';
+import {createActionChangeCheckBox} from "../../store/profile";
 
 export const Profile = (props) => {
-	const {goBack, push} = useHistory();
+	const checkBox = useSelector((state) => state.checkBox);
+	const dispatch = useDispatch();
 	return (
 		<div>
-			Profile
-			<button onClick={goBack}>go back</button>
-			<button onClick={() => push('/chats')}>go to chats</button>
+			<Typography variant="h6">
+				Profile
+			</Typography>
+			<FormControlLabel
+				control={
+				<Switch
+					checked={checkBox}
+					onChange={() => {
+						dispatch(createActionChangeCheckBox(checkBox))
+					}}
+					name="checkedB"
+					color="primary"
+				/>
+				}
+				label="checkBox"
+			/>
 		</div>
 	)
 }
