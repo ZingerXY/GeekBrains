@@ -1,16 +1,23 @@
-import { useParams } from 'react-router-dom';
 import { Redirect } from 'react-router';
+import { useSelector } from 'react-redux';
+import { useParams } from 'react-router-dom';
+import { chatsSelectors } from '../../store/chats';
+import { MessageList } from "../../components/MessageList";
+import { CreateMessageForm } from "../../components/CreateMessageForm";
 
-export const Chat = ({children, chats}) => {
-	const { chatId } = useParams();
+export const Chat = () => {
+	const { chatName } = useParams();
+	const chatId = useSelector(chatsSelectors.getChatByName(chatName))?.id;
 
-	if (!chats[chatId]) {
+	if (!chatId) {
 		return <Redirect to="/chats" />;
 	}
 
 	return (
 		<>
-			{children(chatId)}
+			<h3>{chatName}</h3>
+			<MessageList chatId={chatId}/>
+			<CreateMessageForm chatId={chatId}/>
 		</>
 	)
 }

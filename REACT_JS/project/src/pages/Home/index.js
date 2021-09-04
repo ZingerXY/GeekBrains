@@ -1,32 +1,15 @@
 import React from 'react';
-import {FormControlLabel, Switch, Typography} from "@material-ui/core";
-import {WithThemeContext} from "../../hoc/withThemeContext";
+import { Typography } from "@material-ui/core";
+import { WithThemeContext } from "../../hoc/withThemeContext";
+import { ProfileCheckBox } from '../../components/ProfileCheckBox';
 
-import {useDispatch, useSelector} from 'react-redux';
-import {createActionChangeCheckBox} from "../../store/profile";
-
-
-export const HomeRender = (props) => {
-	const checkBox = useSelector((state) => state.checkBox);
-	const dispatch = useDispatch();
+export const HomeRender = () => {
 	return (
 		<div>
 			<Typography variant="h6">
 				Home
 			</Typography>
-			<FormControlLabel
-				control={
-				<Switch
-					checked={checkBox}
-					onChange={() => {
-						dispatch(createActionChangeCheckBox(checkBox))
-					}}
-					name="checkedB"
-					color="primary"
-				/>
-				}
-				label="checkBox"
-			/>
+			<ProfileCheckBox/>
 		</div>
 	)
 }

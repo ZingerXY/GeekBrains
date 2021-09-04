@@ -1,19 +1,29 @@
 
-import {string, func} from 'prop-types';
-import { List } from '@material-ui/core';
+// import { propTypes } from 'prop-types';
+import { messagesConnect } from '../../connects/messages';
+import { List, ListItem, ListItemText } from '@material-ui/core';
 
-export const MessageList = ({chatId, children}) => {
+export const MessageListRender = ({messages, ...rest}) => {
 
 	return (
 		<List>
 			{
-				children(chatId)
+				messages?.map(({author, text, date}) => 
+					<ListItem key={date}>
+						<ListItemText primary={author} secondary={text} />
+					</ListItem>)
 			}
 		</List>
 	);
 }
 
-MessageList.propTypes = {
-	chatId: string.isRequired,
-	children: func.isRequired,
-}
+// MessageListRender.propTypes = {
+// 	messages: propTypes.arrayOf(propTypes.shape({
+// 		chatId: propTypes.number,
+// 		author: propTypes.string,
+// 		text: propTypes.string,
+// 		date: propTypes.number,
+// 	}))
+// }
+
+export const MessageList = messagesConnect(MessageListRender);
