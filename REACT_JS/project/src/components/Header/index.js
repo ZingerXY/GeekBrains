@@ -13,12 +13,10 @@ const useStyles = makeStyles((theme) => ({
 	},
 }));
 
-export const Header = (props) => {
-	const classes = useStyles();
-
+export const Header = () => {
 	return (
 		<Toolbar>
-			<Typography variant="h6" className={classes.title}>
+			<Typography variant="h6" className={useStyles().title}>
 				Project
 			</Typography>
 		{
