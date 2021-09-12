@@ -1,10 +1,9 @@
 
-// import { propTypes } from 'prop-types';
+import propTypes from 'prop-types';
 import { messagesConnect } from '../../connects/messages';
 import { List, ListItem, ListItemText } from '@material-ui/core';
 
 export const MessageListRender = ({messages, ...rest}) => {
-
 	return (
 		<List>
 			{
@@ -17,13 +16,13 @@ export const MessageListRender = ({messages, ...rest}) => {
 	);
 }
 
-// MessageListRender.propTypes = {
-// 	messages: propTypes.arrayOf(propTypes.shape({
-// 		chatId: propTypes.number,
-// 		author: propTypes.string,
-// 		text: propTypes.string,
-// 		date: propTypes.number,
-// 	}))
-// }
+MessageListRender.propTypes = {
+	messages: propTypes.arrayOf(propTypes.shape({
+		chatId: propTypes.number,
+		author: propTypes.string,
+		text: propTypes.string,
+		date: propTypes.number,
+	}))
+}
 
 export const MessageList = messagesConnect(MessageListRender);
