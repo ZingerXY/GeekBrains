@@ -1,8 +1,7 @@
-// import { propTypes } from 'prop-types';
+import propTypes from 'prop-types';
 import { chatsConnect } from "../../connects/chats";
 import { useSimpleForm } from "../../hooks/useSimpleForm";
-import { TextField, IconButton } from '@material-ui/core';
-import ControlPointIcon from '@material-ui/icons/ControlPoint';
+import { CreateChatsFormPresentation } from "./presentation"
 
 export const CreateChatsFormRender = ({addChat}) => {
 	const {setFieldValue, getFieldValue, resetForm} = useSimpleForm({});
@@ -21,17 +20,16 @@ export const CreateChatsFormRender = ({addChat}) => {
 	}
 
 	return (
-		<>
-			<TextField name="name" value={getFieldValue('name')} onChange={onChange} label="Name new chat" />
-			<IconButton onClick={addNewChat} aria-label="delete">
-				<ControlPointIcon />
-			</IconButton>
-		</>
+		<CreateChatsFormPresentation
+			name={getFieldValue('name')}
+			onChange={onChange}
+			onClick={addNewChat}
+		/>
 	);
 };
 
-// CreateChatsFormRender.propTypes = {
-// 	addChat: propTypes.func.isRequired,
-// }
+CreateChatsFormRender.propTypes = {
+	addChat: propTypes.func.isRequired,
+}
 
 export const CreateChatsForm = chatsConnect(CreateChatsFormRender);
