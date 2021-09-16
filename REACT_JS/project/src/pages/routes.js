@@ -1,6 +1,7 @@
 import { Home } from "./Home";
 import { Chats } from "./Chats";
 import { Profile } from "./Profile";
+import { API } from "./API";
 
 export const routes = [
 	{
@@ -18,5 +19,10 @@ export const routes = [
 		name: 'Profile',
 		path: '/profile',
 		component: Profile,
+	},
+	{
+		name: 'RandomFoxApi',
+		path: '/api',
+		component: API,
 	}
 ]
