@@ -1,6 +1,6 @@
 import React from 'react';
 import { Typography } from "@material-ui/core";
-import { WithThemeContext } from "../../hoc/withThemeContext";
+import { WithThemeContext } from "../../hocs/withThemeContext";
 import { ProfileCheckBox } from '../../components/ProfileCheckBox';
 
 export const HomeRender = () => {

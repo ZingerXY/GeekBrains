@@ -32,7 +32,7 @@ export const API = () => {
 				JSON.stringify(data)
 			}
 			{
-				data && <img src={data.image}></img>
+				data && <img src={data.image} alt=""></img>
 			}
 		</div>
 	)
