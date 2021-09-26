@@ -1,6 +1,11 @@
 import { TextField, IconButton } from '@material-ui/core';
 import ControlPointIcon from '@material-ui/icons/ControlPoint';
 
+export const CreateChatsFormIds = {
+	input: 'CreateChatsForm-input',
+	button: 'CreateChatsForm-button',
+}
+
 export const CreateChatsFormPresentation = ({name, onChange, onClick}) => {
 	return (
 		<>

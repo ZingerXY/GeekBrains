@@ -4,7 +4,6 @@ import { Switch } from 'react-router-dom';
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { getIsAuth, initAuthAction } from "./store/user";
-import { initChatsTracking } from "./store/chats";
 
 function App() {
 	const dispatch = useDispatch();
