@@ -1,0 +1,70 @@
+﻿vitaliy@vitaliy-VirtualBox:~$ mkdir students mentors
+vitaliy@vitaliy-VirtualBox:~$ > students_list.txt
+vitaliy@vitaliy-VirtualBox:~$ > mentors_list.txt
+vitaliy@vitaliy-VirtualBox:~$ ls
+Desktop    Downloads  mentors_list.txt  Pictures  students           Templates  Videos
+Documents  mentors    Music             Public    students_list.txt  test
+vitaliy@vitaliy-VirtualBox:~$ nano students_list.txt 
+vitaliy@vitaliy-VirtualBox:~$ nano mentors_list.txt 
+vitaliy@vitaliy-VirtualBox:~$ mv mentors_list.txt students
+vitaliy@vitaliy-VirtualBox:~$ ls
+Desktop    Downloads  Music     Public    students_list.txt  test
+Documents  mentors    Pictures  students  Templates          Videos
+vitaliy@vitaliy-VirtualBox:~$ tree
+
+Command 'tree' not found, but can be installed with:
+
+sudo snap install tree  # version 1.8.0+pkg-3fd6, or
+sudo apt  install tree  # version 1.8.0-1
+
+See 'snap info tree' for additional versions.
+
+vitaliy@vitaliy-VirtualBox:~$ thresudo apt install tree
+thresudo: command not found
+vitaliy@vitaliy-VirtualBox:~$ sudo apt install tree
+[sudo] password for vitaliy: 
+Reading package lists... Done
+Building dependency tree       
+Reading state information... Done
+The following NEW packages will be installed:
+  tree
+0 upgraded, 1 newly installed, 0 to remove and 114 not upgraded.
+Need to get 43,0 kB of archives.
+After this operation, 115 kB of additional disk space will be used.
+Get:1 http://ru.archive.ubuntu.com/ubuntu focal/universe amd64 tree amd64 1.8.0-1 [43,0 kB]
+Fetched 43,0 kB in 0s (251 kB/s)
+Selecting previously unselected package tree.
+(Reading database ... 166889 files and directories currently installed.)
+Preparing to unpack .../tree_1.8.0-1_amd64.deb ...
+Unpacking tree (1.8.0-1) ...
+Setting up tree (1.8.0-1) ...
+Processing triggers for man-db (2.9.1-1) ...
+vitaliy@vitaliy-VirtualBox:~$ tree
+.
+├── Desktop
+├── Documents
+├── Downloads
+├── mentors
+├── Music
+├── Pictures
+├── Public
+├── students
+│   └── mentors_list.txt
+├── students_list.txt
+├── Templates
+├── test
+└── Videos
+
+10 directories, 3 files
+vitaliy@vitaliy-VirtualBox:~$ rm mentors -r
+vitaliy@vitaliy-VirtualBox:~$ ls
+Desktop    Downloads  Pictures  students           Templates  Videos
+Documents  Music      Public    students_list.txt  test
+vitaliy@vitaliy-VirtualBox:~$ mv students students_and_mentors
+vitaliy@vitaliy-VirtualBox:~$ ls
+Desktop    Downloads  Pictures  students_and_mentors  Templates  Videos
+Documents  Music      Public    students_list.txt     test
+vitaliy@vitaliy-VirtualBox:~$ rm students_and_mentors -r
+vitaliy@vitaliy-VirtualBox:~$ ls
+Desktop  Documents  Downloads  Music  Pictures  Public  students_list.txt  Templates  test  Videos
+vitaliy@vitaliy-VirtualBox:~$ 

@@ -1,0 +1,15 @@
+vitaliy@vitaliy-VirtualBox:~$ uname
+Linux
+vitaliy@vitaliy-VirtualBox:~$ uname -a
+Linux vitaliy-VirtualBox 5.11.0-40-generic #44~20.04.2-Ubuntu SMP Tue Oct 26 18:07:44 UTC 2021 x86_64 x86_64 x86_64 GNU/Linux
+vitaliy@vitaliy-VirtualBox:~$ hostnamectl
+   Static hostname: vitaliy-VirtualBox
+         Icon name: computer-vm
+           Chassis: vm
+        Machine ID: 0bf04eceebf044f9853f7bf854efdb11
+           Boot ID: 43a67e4fac1f4733b9a8f6a96b9518fe
+    Virtualization: oracle
+  Operating System: Ubuntu 20.04.3 LTS
+            Kernel: Linux 5.11.0-40-generic
+      Architecture: x86-64
+vitaliy@vitaliy-VirtualBox:~$ 
