@@ -1,0 +1,46 @@
+italiy@vitaliy-VirtualBox:~$ sudo apt-add-repository ppa:nginx/stable 
+[sudo] password for vitaliy: 
+ This PPA contains the latest Stable Release version of the nginx web server software.
+
+**Only Non-End-of-Life Ubuntu Releases are supported in this PPA**
+
+**Development releases of Ubuntu are not officially supported by this PPA, and uploads for those will not be available until actual final releases for those versions**
+ More info: https://launchpad.net/~nginx/+archive/ubuntu/stable
+Press [ENTER] to continue or Ctrl-c to cancel adding it.
+
+Hit:1 http://ru.archive.ubuntu.com/ubuntu focal InRelease
+Hit:2 http://ru.archive.ubuntu.com/ubuntu focal-updates InRelease                                     
+Hit:3 http://ru.archive.ubuntu.com/ubuntu focal-backports InRelease                                    
+Get:4 http://ppa.launchpad.net/nginx/stable/ubuntu focal InRelease [17,5 kB]                           
+Hit:5 http://security.ubuntu.com/ubuntu focal-security InRelease                         
+Get:6 http://ppa.launchpad.net/nginx/stable/ubuntu focal/main i386 Packages [1 224 B]
+Get:7 http://ppa.launchpad.net/nginx/stable/ubuntu focal/main amd64 Packages [4 944 B]
+Get:8 http://ppa.launchpad.net/nginx/stable/ubuntu focal/main Translation-en [4 572 B]
+Fetched 28,3 kB in 1s (27,9 kB/s)                   
+Reading package lists... Done
+vitaliy@vitaliy-VirtualBox:~$ apt-get download nginx
+Get:1 http://ppa.launchpad.net/nginx/stable/ubuntu focal/main amd64 nginx all 1.18.0-3ubuntu1+focal2 [35,6 kB]
+Fetched 35,6 kB in 1s (27,9 kB/s)  
+vitaliy@vitaliy-VirtualBox:~$ sudo dpkg -i nginx_1.18.0-3ubuntu1+focal2_all.deb 
+Selecting previously unselected package nginx.
+(Reading database ... 164968 files and directories currently installed.)
+Preparing to unpack nginx_1.18.0-3ubuntu1+focal2_all.deb ...
+Unpacking nginx (1.18.0-3ubuntu1+focal2) ...
+dpkg: dependency problems prevent configuration of nginx:
+ nginx depends on nginx-core (<< 1.18.0-3ubuntu1+focal2.1~) | nginx-full (<< 1.18.0-3ubuntu1+focal2.1~) | nginx-light (<< 1.18.0-3ubuntu1+focal2.1~) | nginx-extras (<< 1.18.0-3ubuntu1+focal2.1~); however:
+  Package nginx-core is not installed.
+  Package nginx-full is not installed.
+  Package nginx-light is not installed.
+  Package nginx-extras is not installed.
+ nginx depends on nginx-core (>= 1.18.0-3ubuntu1+focal2) | nginx-full (>= 1.18.0-3ubuntu1+focal2) | nginx-light (>= 1.18.0-3ubuntu1+focal2) | nginx-extras (>= 1.18.0-3ubuntu1+focal2); however:
+  Package nginx-core is not installed.
+  Package nginx-full is not installed.
+  Package nginx-light is not installed.
+  Package nginx-extras is not installed.
+
+dpkg: error processing package nginx (--install):
+ dependency problems - leaving unconfigured
+Errors were encountered while processing:
+ nginx
+ 
+ Не успел доделать дз, заглушка.

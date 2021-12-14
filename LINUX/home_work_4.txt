@@ -1,0 +1,72 @@
+vitaliy@vitaliy-VirtualBox:~$ echo grand line... > file
+vitaliy@vitaliy-VirtualBox:~$ cat file
+grand line...
+vitaliy@vitaliy-VirtualBox:~$ cat /etc/* 1> text_etc 2> errors_etc
+vitaliy@vitaliy-VirtualBox:~$ tail text_etc
+# installation of packages available from the repository
+
+if [[ -x /usr/lib/command-not-found ]] ; then
+        if (( ! ${+functions[command_not_found_handler]} )) ; then
+               function command_not_found_handler {
+                [[ -x /usr/lib/command-not-found ]] || return 1
+                /usr/lib/command-not-found --no-failure-msg -- ${1+"$1"} && :
+               }
+        fi
+fi
+vitaliy@vitaliy-VirtualBox:~$ tail errors_etc 
+cat: /etc/update-notifier: Это каталог
+cat: /etc/UPower: Это каталог
+cat: /etc/usb_modeswitch.d: Это каталог
+cat: /etc/vim: Это каталог
+cat: /etc/vmware-tools: Это каталог
+cat: /etc/vulkan: Это каталог
+cat: /etc/wpa_supplicant: Это каталог
+cat: /etc/X11: Это каталог
+cat: /etc/xdg: Это каталог
+cat: /etc/xml: Это каталог
+vitaliy@vitaliy-VirtualBox:~$ ls -l | cut -b -10 | sort | uniq
+drwxr-xr-x
+-rw-rw-r--
+итого
+
+vitaliy@vitaliy-VirtualBox:~$ sudo nano /etc/ssh/sshd_config
+[sudo] пароль для vitaliy: 
+vitaliy@vitaliy-VirtualBox:~$ systemctl restart sshd
+Traceback (most recent call last):
+  File "/usr/bin/systemctl", line 4521, in <module>
+    result = command_func(*modules)
+  File "/usr/bin/systemctl", line 2374, in restart_modules
+    return self.restart_units(units) and found_all
+  File "/usr/bin/systemctl", line 2380, in restart_units
+    if not self.restart_unit(unit):
+  File "/usr/bin/systemctl", line 2391, in restart_unit
+    return self.restart_unit_from(conf)
+  File "/usr/bin/systemctl", line 2398, in restart_unit_from
+    return self.do_start_unit_from(conf)
+  File "/usr/bin/systemctl", line 1812, in do_start_unit_from
+    self.execve_from(conf, newcmd, env) # pragma: nocover
+  File "/usr/bin/systemctl", line 2049, in execve_from
+    out = self.open_journal_log(conf)
+  File "/usr/bin/systemctl", line 1638, in open_journal_log
+    return open(os.path.join(log_file), "a")
+PermissionError: [Errno 13] Permission denied: '/var/log/journal/sshd.service.log'
+ERROR:systemctl:the ExecStartPre control process exited with error code
+ERROR:systemctl:writing STATUS {'AS': 'failed'}: [Errno 13] Permission denied: '/var/run/sshd.service.status'
+         to status file /var/run/sshd.service.status
+vitaliy@vitaliy-VirtualBox:~$ sudo systemctl restart sshd
+vitaliy@vitaliy-VirtualBox:~$ sudo nano /etc/ssh/sshd_config
+vitaliy@vitaliy-VirtualBox:~$ systemctl reload sshd
+
+reload - не меняет PID процесса считывает конфиги
+restart - выключает и включает процесс со сменой PID
+
+vitaliy@vitaliy-VirtualBox:~$ cat > file_name
+123
+321
+123vitaliy@vitaliy-VirtualBox:~$ ps aux | grep mc
+vitaliy    13588  0.0  0.8  29520  8436 pts/1    S+   05:06   0:00 mc
+vitaliy    13597  0.0  0.0  17564   736 pts/0    S+   05:07   0:00 grep --color=auto mc
+vitaliy@vitaliy-VirtualBox:~$ kill -s 9 13588
+vitaliy@vitaliy-VirtualBox:~$ ps aux | grep mc
+vitaliy    13599  0.0  0.0  17564   736 pts/0    S+   05:08   0:00 grep --color=auto mc
+vitaliy@vitaliy-VirtualBox:~$ 

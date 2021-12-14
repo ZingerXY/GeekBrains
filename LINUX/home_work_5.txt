@@ -1,0 +1,94 @@
+vitaliy@vitaliy-VirtualBox:~$ echo arbitrary content >> file1
+vitaliy@vitaliy-VirtualBox:~$ cp file1 file2
+vitaliy@vitaliy-VirtualBox:~$ ln -s file1 file3
+vitaliy@vitaliy-VirtualBox:~$ ln file1 file4
+vitaliy@vitaliy-VirtualBox:~$ ls -li
+total 44
+25696 drwxr-xr-x 2 vitaliy vitaliy 4096 ноя 27 04:48 Desktop
+25700 drwxr-xr-x 2 vitaliy vitaliy 4096 ноя 27 04:48 Documents
+25697 drwxr-xr-x 2 vitaliy vitaliy 4096 ноя 27 04:48 Downloads
+26016 -rw-rw-r-- 2 vitaliy vitaliy   18 ноя 27 05:42 file1
+25981 -rw-rw-r-- 1 vitaliy vitaliy   18 ноя 27 05:44 file2
+26017 lrwxrwxrwx 1 vitaliy vitaliy    5 ноя 27 05:45 file3 -> file1
+26016 -rw-rw-r-- 2 vitaliy vitaliy   18 ноя 27 05:42 file4
+25701 drwxr-xr-x 2 vitaliy vitaliy 4096 ноя 27 04:48 Music
+25702 drwxr-xr-x 2 vitaliy vitaliy 4096 ноя 27 04:48 Pictures
+25699 drwxr-xr-x 2 vitaliy vitaliy 4096 ноя 27 04:48 Public
+25698 drwxr-xr-x 2 vitaliy vitaliy 4096 ноя 27 04:48 Templates
+25703 drwxr-xr-x 2 vitaliy vitaliy 4096 ноя 27 04:48 Videos
+vitaliy@vitaliy-VirtualBox:~$ rm file1
+vitaliy@vitaliy-VirtualBox:~$ cat file2
+arbitrary content
+vitaliy@vitaliy-VirtualBox:~$ cat file3
+cat: file3: No such file or directory
+vitaliy@vitaliy-VirtualBox:~$ cat file4
+arbitrary content
+
+
+vitaliy@vitaliy-VirtualBox:~$ mv file1 file01
+vitaliy@vitaliy-VirtualBox:~$ mv file2 file02
+vitaliy@vitaliy-VirtualBox:~$ ln -s file01 link_file01
+vitaliy@vitaliy-VirtualBox:~$ ln -s file02 link_file02
+vitaliy@vitaliy-VirtualBox:~$ ls -li
+total 44
+25696 drwxr-xr-x 2 vitaliy vitaliy 4096 ноя 27 04:48 Desktop
+25700 drwxr-xr-x 2 vitaliy vitaliy 4096 ноя 27 04:48 Documents
+25697 drwxr-xr-x 2 vitaliy vitaliy 4096 ноя 27 04:48 Downloads
+26016 -rw-rw-r-- 2 vitaliy vitaliy   18 ноя 27 05:53 file01
+26017 -rw-rw-r-- 1 vitaliy vitaliy   18 ноя 27 05:54 file02
+26019 lrwxrwxrwx 1 vitaliy vitaliy    5 ноя 27 05:54 file3 -> file1
+26016 -rw-rw-r-- 2 vitaliy vitaliy   18 ноя 27 05:53 file4
+25981 lrwxrwxrwx 1 vitaliy vitaliy    6 ноя 27 05:56 link_file01 -> file01
+25982 lrwxrwxrwx 1 vitaliy vitaliy    6 ноя 27 05:57 link_file02 -> file02
+25701 drwxr-xr-x 2 vitaliy vitaliy 4096 ноя 27 04:48 Music
+25702 drwxr-xr-x 2 vitaliy vitaliy 4096 ноя 27 04:48 Pictures
+25699 drwxr-xr-x 2 vitaliy vitaliy 4096 ноя 27 04:48 Public
+25698 drwxr-xr-x 2 vitaliy vitaliy 4096 ноя 27 04:48 Templates
+25703 drwxr-xr-x 2 vitaliy vitaliy 4096 ноя 27 04:48 Videos
+vitaliy@vitaliy-VirtualBox:~$ mkdir link
+vitaliy@vitaliy-VirtualBox:~$ mv link_* link/
+vitaliy@vitaliy-VirtualBox:~$ ls -li
+total 48
+25696 drwxr-xr-x 2 vitaliy vitaliy 4096 ноя 27 04:48 Desktop
+25700 drwxr-xr-x 2 vitaliy vitaliy 4096 ноя 27 04:48 Documents
+25697 drwxr-xr-x 2 vitaliy vitaliy 4096 ноя 27 04:48 Downloads
+26016 -rw-rw-r-- 2 vitaliy vitaliy   18 ноя 27 05:53 file01
+26017 -rw-rw-r-- 1 vitaliy vitaliy   18 ноя 27 05:54 file02
+26019 lrwxrwxrwx 1 vitaliy vitaliy    5 ноя 27 05:54 file3 -> file1
+26016 -rw-rw-r-- 2 vitaliy vitaliy   18 ноя 27 05:53 file4
+26018 drwxrwxr-x 2 vitaliy vitaliy 4096 ноя 27 05:59 link
+25701 drwxr-xr-x 2 vitaliy vitaliy 4096 ноя 27 04:48 Music
+25702 drwxr-xr-x 2 vitaliy vitaliy 4096 ноя 27 04:48 Pictures
+25699 drwxr-xr-x 2 vitaliy vitaliy 4096 ноя 27 04:48 Public
+25698 drwxr-xr-x 2 vitaliy vitaliy 4096 ноя 27 04:48 Templates
+25703 drwxr-xr-x 2 vitaliy vitaliy 4096 ноя 27 04:48 Videos
+vitaliy@vitaliy-VirtualBox:~$ cd link
+vitaliy@vitaliy-VirtualBox:~/link$ ls -li
+total 0
+25981 lrwxrwxrwx 1 vitaliy vitaliy 6 ноя 27 05:56 link_file01 -> file01
+25982 lrwxrwxrwx 1 vitaliy vitaliy 6 ноя 27 05:57 link_file02 -> file02
+vitaliy@vitaliy-VirtualBox:~/link$ 
+
+
+vitaliy@vitaliy-VirtualBox:~$ echo file1 > randomFile1
+vitaliy@vitaliy-VirtualBox:~$ echo file2 > randomFile2
+vitaliy@vitaliy-VirtualBox:~$ chmod u=rw,g=rw,o=r randomFile1
+vitaliy@vitaliy-VirtualBox:~$ chmod u=rw,g-rw,o-r randomFile2
+vitaliy@vitaliy-VirtualBox:~$ ls -l
+total 56
+drwxr-xr-x 2 vitaliy vitaliy 4096 ноя 27 04:48 Desktop
+drwxr-xr-x 2 vitaliy vitaliy 4096 ноя 27 04:48 Documents
+drwxr-xr-x 2 vitaliy vitaliy 4096 ноя 27 04:48 Downloads
+-rw-rw-r-- 2 vitaliy vitaliy   18 ноя 27 05:53 file01
+-rw-rw-r-- 1 vitaliy vitaliy   18 ноя 27 05:54 file02
+lrwxrwxrwx 1 vitaliy vitaliy    5 ноя 27 05:54 file3 -> file1
+-rw-rw-r-- 2 vitaliy vitaliy   18 ноя 27 05:53 file4
+drwxrwxr-x 2 vitaliy vitaliy 4096 ноя 27 05:59 link
+drwxr-xr-x 2 vitaliy vitaliy 4096 ноя 27 04:48 Music
+drwxr-xr-x 2 vitaliy vitaliy 4096 ноя 27 04:48 Pictures
+drwxr-xr-x 2 vitaliy vitaliy 4096 ноя 27 04:48 Public
+-rw-rw-r-- 1 vitaliy vitaliy    6 ноя 27 06:01 randomFile1
+-rw------- 1 vitaliy vitaliy    6 ноя 27 06:01 randomFile2
+drwxr-xr-x 2 vitaliy vitaliy 4096 ноя 27 04:48 Templates
+drwxr-xr-x 2 vitaliy vitaliy 4096 ноя 27 04:48 Videos
+vitaliy@vitaliy-VirtualBox:~$ 

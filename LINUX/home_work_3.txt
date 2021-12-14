@@ -1,0 +1,144 @@
+vitaliy@vitaliy-VirtualBox:~$ sudo adduser new_user
+[sudo] password for vitaliy: 
+Adding user `new_user' ...
+Adding new group `new_user' (1001) ...
+Adding new user `new_user' (1001) with group `new_user' ...
+Creating home directory `/home/new_user' ...
+Copying files from `/etc/skel' ...
+New password: 
+Retype new password: 
+passwd: password updated successfully
+Changing the user information for new_user
+Enter the new value, or press ENTER for the default
+        Full Name []: 
+        Room Number []: 
+        Work Phone []: 
+        Home Phone []: 
+        Other []: 
+Is the information correct? [Y/n] y
+vitaliy@vitaliy-VirtualBox:~$ tail /etc/passwd
+geoclue:x:122:127::/var/lib/geoclue:/usr/sbin/nologin
+pulse:x:123:128:PulseAudio daemon,,,:/var/run/pulse:/usr/sbin/nologin
+gnome-initial-setup:x:124:65534::/run/gnome-initial-setup/:/bin/false
+gdm:x:125:130:Gnome Display Manager:/var/lib/gdm3:/bin/false
+sssd:x:126:131:SSSD system user,,,:/var/lib/sss:/usr/sbin/nologin
+vitaliy:x:1000:1000:Vitaliy,,,:/home/vitaliy:/bin/bash
+systemd-coredump:x:999:999:systemd Core Dumper:/:/usr/sbin/nologin
+vboxadd:x:998:1::/var/run/vboxadd:/bin/false
+sshd:x:127:65534::/run/sshd:/usr/sbin/nologin
+new_user:x:1001:1001:,,,:/home/new_user:/bin/bash
+vitaliy@vitaliy-VirtualBox:~$ tail /etc/group
+pulse:x:128:
+pulse-access:x:129:
+gdm:x:130:
+sssd:x:131:
+lxd:x:132:vitaliy
+vitaliy:x:1000:
+sambashare:x:133:vitaliy
+systemd-coredump:x:999:
+vboxsf:x:998:
+new_user:x:1001:
+vitaliy@vitaliy-VirtualBox:~$ sudo tail /etc/shadow
+geoclue:*:18858:0:99999:7:::
+pulse:*:18858:0:99999:7:::
+gnome-initial-setup:*:18858:0:99999:7:::
+gdm:*:18858:0:99999:7:::
+sssd:*:18858:0:99999:7:::
+vitaliy:$6$ZKiciy.3Qyg6p2BS$SPd.F2SU/jzex7VEbEyEy5Su2reFxYZ5gpOSj8EFCwxgMBemFuvz79PpzNF9nDylYwNn/j/DCvaoM2gJ0iOPq/:18941:0:99999:7:::
+systemd-coredump:!!:18941::::::
+vboxadd:!:18941::::::
+sshd:*:18944:0:99999:7:::
+new_user:$6$5.qM5rt7bBumQqSg$il.DkJV3f1mSsvK57t6hZLHhKxvrqgK9oAFAJuTnLlSDap5niO7XrQOcDhQD3HgSMjyZqwzj318Ik52LI.MFJ/:18948:0:99999:7:::
+vitaliy@vitaliy-VirtualBox:~$ sudo userdel -r new_user
+userdel: new_user mail spool (/var/mail/new_user) not found
+vitaliy@vitaliy-VirtualBox:~$ tail /etc/passwd
+colord:x:121:126:colord colour management daemon,,,:/var/lib/colord:/usr/sbin/nologin
+geoclue:x:122:127::/var/lib/geoclue:/usr/sbin/nologin
+pulse:x:123:128:PulseAudio daemon,,,:/var/run/pulse:/usr/sbin/nologin
+gnome-initial-setup:x:124:65534::/run/gnome-initial-setup/:/bin/false
+gdm:x:125:130:Gnome Display Manager:/var/lib/gdm3:/bin/false
+sssd:x:126:131:SSSD system user,,,:/var/lib/sss:/usr/sbin/nologin
+vitaliy:x:1000:1000:Vitaliy,,,:/home/vitaliy:/bin/bash
+systemd-coredump:x:999:999:systemd Core Dumper:/:/usr/sbin/nologin
+vboxadd:x:998:1::/var/run/vboxadd:/bin/false
+sshd:x:127:65534::/run/sshd:/usr/sbin/nologin
+vitaliy@vitaliy-VirtualBox:~$ sudo groupadd new_group
+vitaliy@vitaliy-VirtualBox:~$ tail /etc/group
+pulse:x:128:
+pulse-access:x:129:
+gdm:x:130:
+sssd:x:131:
+lxd:x:132:vitaliy
+vitaliy:x:1000:
+sambashare:x:133:vitaliy
+systemd-coredump:x:999:
+vboxsf:x:998:
+new_group:x:1001:
+vitaliy@vitaliy-VirtualBox:~$ sudo usermod -aG new_group vitaliy
+vitaliy@vitaliy-VirtualBox:~$ tail /etc/group
+pulse:x:128:
+pulse-access:x:129:
+gdm:x:130:
+sssd:x:131:
+lxd:x:132:vitaliy
+vitaliy:x:1000:
+sambashare:x:133:vitaliy
+systemd-coredump:x:999:
+vboxsf:x:998:
+new_group:x:1001:vitaliy
+vitaliy@vitaliy-VirtualBox:~$ sudo gpasswd -d vitaliy new_group
+Removing user vitaliy from group new_group
+vitaliy@vitaliy-VirtualBox:~$ tail /etc/group
+pulse:x:128:
+pulse-access:x:129:
+gdm:x:130:
+sssd:x:131:
+lxd:x:132:vitaliy
+vitaliy:x:1000:
+sambashare:x:133:vitaliy
+systemd-coredump:x:999:
+vboxsf:x:998:
+new_group:x:1001:
+vitaliy@vitaliy-VirtualBox:~$ sudo adduser super_user
+Adding user `super_user' ...
+Adding new group `super_user' (1002) ...
+Adding new user `super_user' (1001) with group `super_user' ...
+Creating home directory `/home/super_user' ...
+Copying files from `/etc/skel' ...
+New password: 
+Retype new password: 
+passwd: password updated successfully
+Changing the user information for super_user
+Enter the new value, or press ENTER for the default
+        Full Name []: 
+        Room Number []: 
+        Work Phone []: 
+        Home Phone []: 
+        Other []: 
+Is the information correct? [Y/n] y
+vitaliy@vitaliy-VirtualBox:~$ su super_user
+Password: 
+super_user@vitaliy-VirtualBox:/home/vitaliy$ sudo tail /etc/shadow
+[sudo] password for super_user: 
+super_user is not in the sudoers file.  This incident will be reported.
+super_user@vitaliy-VirtualBox:/home/vitaliy$ exit
+exit
+vitaliy@vitaliy-VirtualBox:~$ sudo usermod -aG sudo super_user
+vitaliy@vitaliy-VirtualBox:~$ su super_user
+Password: 
+To run a command as administrator (user "root"), use "sudo <command>".
+See "man sudo_root" for details.
+
+super_user@vitaliy-VirtualBox:/home/vitaliy$ sudo tail /etc/shadow
+[sudo] password for super_user: 
+geoclue:*:18858:0:99999:7:::
+pulse:*:18858:0:99999:7:::
+gnome-initial-setup:*:18858:0:99999:7:::
+gdm:*:18858:0:99999:7:::
+sssd:*:18858:0:99999:7:::
+vitaliy:$6$ZKiciy.3Qyg6p2BS$SPd.F2SU/jzex7VEbEyEy5Su2reFxYZ5gpOSj8EFCwxgMBemFuvz79PpzNF9nDylYwNn/j/DCvaoM2gJ0iOPq/:18941:0:99999:7:::
+systemd-coredump:!!:18941::::::
+vboxadd:!:18941::::::
+sshd:*:18944:0:99999:7:::
+super_user:$6$2JuykqGhnwfdOl.L$D2ddYdYDSAGDzYQGerzBfJYvE4Qibo3erGHUBoGy1D.T4TC3yNFbMKyP1dD2cHohUd6j1fonRUoFilnFcHK2W/:18948:0:99999:7:::
+super_user@vitaliy-VirtualBox:/home/vitaliy$ 
