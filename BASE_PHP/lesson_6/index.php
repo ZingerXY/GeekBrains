@@ -21,7 +21,7 @@ if (isset($_GET['calc'])) {
 
 $reviews = '';
 
-include_once 'config.php';
+include_once 'src/config.php';
 $mysqli = new mysqli(HOST, USER, PASSWORD, DB);
 
 
@@ -38,7 +38,7 @@ include_once 'src/goods.php';
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Lesson 7</title>
+	<title>Lesson 6</title>
 	<style type="text/css">
 		.selected {
 			border-color: red;
