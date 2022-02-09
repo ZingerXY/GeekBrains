@@ -1,0 +1,12 @@
+<div class='goods'>
+	<h3>{name}</h3>
+	<a href="index.php?goodsId={id}">
+		<img class='goods_img' src="images/{image}">
+	</a><br>
+	<b>Цена: {price}</b>
+	<form method="post">
+		<input type="hidden" name="goodsId" value="{id}">
+		<input type="submit" name="addToCart" value="Добавить в корзину">
+	</form>
+	<p>{description}</p>
+</div>
