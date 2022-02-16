@@ -26,7 +26,7 @@
 
 	$cartResult = 'Пусто';
 
-	if (count($_SESSION['cart'])) {
+	if (!isset($_POST['addorder']) && count($_SESSION['cart'])) {
 		$cart = $_SESSION['cart'];
 		$totalPrice = 0;
 		$cartResult = '';

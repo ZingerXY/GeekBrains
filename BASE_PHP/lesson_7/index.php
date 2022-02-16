@@ -17,9 +17,11 @@ $mysqli = new mysqli(HOST, USER, PASSWORD, DB);
 
 include_once 'src/users.php';
 include_once 'src/template.php';
+include_once 'src/cart.php';
+include_once 'src/orders.php';
 include_once 'src/review.php';
 include_once 'src/goods.php';
-include_once 'src/cart.php';
+
 ?>
 
 <!DOCTYPE html>
@@ -29,8 +31,25 @@ include_once 'src/cart.php';
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Lesson 7</title>
+	<title>Lesson 8</title>
 	<style type="text/css">
+		table {
+			border-collapse: collapse;
+		}
+
+		th, td {
+			border: 1px solid #888;
+			padding: 2px 5px;
+		}
+
+		.noborder {
+			border: none;
+		}
+
+		.tdspace {
+			height: 2px;
+		}
+
 		.goods_list {
 			display: flex;
 			flex-wrap: wrap;
@@ -66,6 +85,34 @@ include_once 'src/cart.php';
 		#hidelogin:not(:checked)~.reg {
 			display: none;
 		}
+
+		.editKey {
+			text-decoration: underline;
+			font-weight: bold;
+			cursor: pointer;
+		}
+
+		.showEdit:checked~.editForm {
+			display: block;
+		}
+
+		.showEdit:not(:checked)~.editForm {
+			display: none;
+		}
+
+		#addOrder:checked~.addOrderForm {
+			display: block;
+		}
+
+		#addOrder:not(:checked)~.addOrderForm {
+			display: none;
+		}
+
+		.addOrder {
+			text-decoration: underline;
+			font-weight: bold;
+			cursor: pointer;
+		}
 	</style>
 </head>
 
@@ -73,13 +120,19 @@ include_once 'src/cart.php';
 	<h1>Магаз для Вас</h1>
 	<hr>
 	<?= $loginMessage ?>
-	<?php if (isset($_SESSION['login_sucsess']) && $_SESSION['login_sucsess']) : ?>
+	<?php if (isLogin()) : ?>
 		<div>
-			Здравсвтуйте, <?= $_SESSION['user']['login'] ?><br>
+			Здравсвтуйте, <?= isAdmin() ? 'господин' : '' ?> <?= $_SESSION['user']['login'] ?><br>
 			<form method="POST">
 				<input class="login" type="submit" name="do_logout" value="Выйти">
 			</form>
 		</div>
+		<?php if ($countOrders) : ?>
+			<div>
+				<h3>Заказы</h3>
+				<?= $ordersResult ?>
+			</div>
+		<?php endif; ?>
 	<?php else : ?>
 		<div>
 			<form method="POST">
@@ -97,21 +150,23 @@ include_once 'src/cart.php';
 	<?php endif; ?>
 	<hr>
 	<h3>Корзина</h3>
-	<?= $cartResult ?>
+	<?= $cartResult ?><br>
+	<?= $orderResult ?>
 	<hr>
 	<h3>Каталог</h3>
 	<div>
-		<a href="index.php">В каталог</a>
+		<?php if (isset($_GET['goodsId'])) : ?>
+			<a href="index.php">В каталог</a>
+		<?php endif; ?>
 		<?= $goodsResult ?>
-		<?php if (isset($_GET['addGoods'])) : ?>
+		<?php if (isAdmin() && !isset($_GET['goodsId'])) : ?>
 			<h3>Добавление товара:</h3>
 			<form method="POST" enctype="multipart/form-data">
 				<input type="text" name="name" placeholder="name"></br>
 				<input type="text" name="price" placeholder="price"></br>
 				<input type="file" name="image" accept="image/*"></br>
 				<input type="text" name="description" placeholder="description"></br>
-				<input type="hidden" name="addgoods">
-				<input type="submit" value="Отправить">
+				<input type="submit" name="addgoods" value="Отправить">
 			</form>
 		<?php endif; ?>
 	</div>
@@ -122,12 +177,14 @@ include_once 'src/cart.php';
 	</div>
 	<div>
 		<form method="post">
-			<input type="text" name='firstname' placeholder="Name"><br>
+			<input type="text" name='firstname' placeholder="Name" value='<?= $_SESSION['user']['login'] ?? '' ?>'><br>
 			<textarea name="review" id="" cols="50" rows="6" maxlength="300"></textarea><br>
 			<input type="hidden" name="addReview">
 			<input type="submit" value="Отправить">
 		</form>
 	</div>
+	<script>isAdmin = <?= (isAdmin() ? 'true': 'false')?></script>
+	<script type="text/javascript" src="js/app.js?<?= uniqid() ?>"></script>
 </body>
 
 </html>

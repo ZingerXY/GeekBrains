@@ -35,6 +35,18 @@ if (isset($_REQUEST['do_login'])) {
 }
 
 if (isset($_REQUEST['do_logout'])) {
+	logOut();
+}
+
+function isAdmin() {
+	return isLogin() && $_SESSION['user']['level'] >= 100;
+}
+
+function isLogin() {
+	return isset($_SESSION['login_sucsess']) && $_SESSION['login_sucsess'] && isset($_SESSION['user']);
+}
+
+function logOut() {
 	unset($_SESSION['user']);
 	$_SESSION['login_sucsess'] = false;
 }

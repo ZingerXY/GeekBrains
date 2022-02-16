@@ -1,0 +1,10 @@
+<form class="adminReview" data-id="{id}">
+	<select name="public" id="publicSelect{id}">
+		<option value="0">Скрыт</option>
+		<option value="1">Опубликован</option>
+	</select>
+	<input type="button" value="Удалить">
+	<script>
+		document.querySelector('#publicSelect{id}>option[value="{public}"]').selected = true;
+	</script>
+</form>
