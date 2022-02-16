@@ -7,3 +7,8 @@
 		}
 		return $template;
 	}
+
+	function sendJson($json) {
+		header('Content-type: application/json');
+		exit($json);
+	}

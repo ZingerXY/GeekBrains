@@ -1,0 +1,12 @@
+<td>
+	<select data-id="{id}" class="changeStatus" name="status" id="statusSelect{id}">
+		<option value="1">В обработке</option>
+		<option value="2">Выполняется</option>
+		<option value="3">Завершен</option>
+	</select>
+	<script>
+		document.querySelector('#statusSelect{id}>option[value="{status}"]').selected = true;
+	</script>
+</td>
+<td class="noborder"></td>
+<td><input class="deleteOrder" data-id="{id}" type="button" value='Удалить заказ'></td>
